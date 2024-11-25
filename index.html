@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Albin Jegus S - Software Developer Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #d4af37;
+            --secondary-color: #1c1c1c;
+            --accent-color: #8b0000;
+            --text-color: #f8f8f8;
+            --bg-color: #0a0a0a;
+        }
+
+        body, html {
+            font-family: 'Playfair Display', serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        
+
+        .navbar {
+            background-color: rgba(28, 28, 28, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        .navbar-brand, .nav-link {
+            color: var(--primary-color) !important;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-color) !important;
+            transform: scale(1.1);
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, var(--secondary-color), var(--accent-color));
+            opacity: 0.7;
+            z-index: -1;
+        }
+
+        .hero-content {
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+            animation: glowText 2s infinite alternate;
+        }
+
+        .hero p {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: var(--secondary-color);
+            padding: 12px 40px;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: all 0.5s;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+            color: var(--primary-color);
+            transform: scale(1.05);
+        }
+
+        .section-title {
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background-color: var(--accent-color);
+            margin: 20px auto 0;
+        }
+
+        .skill-card, .experience-card, .education-card, .project-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--primary-color);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.5s ease;
+            margin-bottom: 2rem;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .skill-card:hover, .experience-card:hover, .education-card:hover, .project-card:hover {
+            transform: translateY(-20px) rotate(2deg);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.3);
+        }
+
+        .skill-card::before, .experience-card::before, .education-card::before, .project-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, var(--primary-color), transparent 30%);
+            animation: rotate 4s linear infinite;
+        }
+
+        .skill-card::after, .experience-card::after, .education-card::after, .project-card::after {
+            content: '';
+            position: absolute;
+            inset: 3px;
+            background: var(--bg-color);
+        }
+
+        .card-content {
+            position: relative;
+            z-index: 1;
+            padding: 2rem;
+	    height: 35vh;
+        }
+  
+
+        .card-title {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        @keyframes glowText {
+            0% {
+                text-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--primary-color), 0 0 30px var(--primary-color);
+            }
+            100% {
+                text-shadow: 0 0 20px var(--primary-color), 0 0 30px var(--primary-color), 0 0 40px var(--primary-color);
+            }
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        footer {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            padding: 3rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, var(--primary-color) 10%, transparent 10%);
+            background-size: 20px 20px;
+            opacity: 0.1;
+            animation: moveBackground 20s linear infinite;
+        }
+
+        .social-icon {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin: 0 15px;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            color: var(--accent-color);
+            transform: scale(1.2) rotate(15deg);
+        }
+
+        @keyframes moveBackground {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 400px 400px;
+            }
+        }
+
+        .skills-list {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .skills-list li {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--primary-color);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            padding: 10px 20px;
+            margin: 10px;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            animation: skillsBullet 1s ease-in-out infinite alternate;
+        }
+
+        @keyframes skillsBullet {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .skills-list li::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, var(--primary-color), transparent 30%);
+            animation: rotate 4s linear infinite;
+        }
+
+        .skills-list li::after {
+            content: '';
+            position: absolute;
+            inset: 3px;
+            background: var(--bg-color);
+            border-radius: 20px;
+        }
+
+        .skills-list li span {
+            position: relative;
+            z-index: 1;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+
+        .background-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.5;
+        }
+
+        .background-animation span {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            pointer-events: none;
+            box-shadow: 0 0 10px var(--primary-color),
+                        0 0 20px var(--primary-color),
+                        0 0 30px var(--primary-color),
+                        0 0 40px var(--primary-color),
+                        0 0 50px var(--primary-color),
+                        0 0 60px var(--primary-color),
+                        0 0 70px var(--primary-color),
+                        0 0 80px var(--primary-color),
+                        0 0 90px var(--primary-color),
+                        0 0 100px var(--primary-color);
+        }
+
+
+
+.btn-secondary {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+            color: var(--primary-color);
+            padding: 12px 40px;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            margin-left: 20px;
+        }
+
+        .btn-secondary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: all 0.5s;
+        }
+
+        .btn-secondary:hover::before {
+            left: 100%;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: var(--secondary-color);
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+   
+
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#experience">Experience</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#education">Education</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">  Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#pp"> Personal projects</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <div class="hero-content">
+                        <h1>Albin Jegus S</h1>
+                        <p class="lead mb-4" style="color: blue;">AI Engineer | Full-Stack Developer</p>
+                        <div class="mb-4">
+                            <p class="text-light">
+                                Passionate about leveraging cutting-edge technologies to solve complex problems. 
+                                With expertise in AI, machine learning, and full-stack development, 
+                                I transform innovative ideas into scalable, intelligent solutions.
+                            </p>
+                        </div>
+                        <div>
+                            <a href="#skills" class="btn btn-primary btn-lg me-3">Explore My Skills</a>
+                            <a href="pdfs/jegus-resume.pdf" class="btn btn-secondary btn-lg" download="jegus-resume.pdf">Download Resume</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center">
+                    <img src="images/jegusnew.png" alt="Albin" class="img-fluid rounded-circle shadow-lg" style="max-width: 300px; border: 4px solid var(--primary-color);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="skills" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Skills</h2>
+            <ul class="skills-list">
+                <li><span>Python</span></li>
+                <li><span>Django</span></li>
+                <li><span>Machine Learning</span></li>
+                <li><span>Generative AI</span></li>
+                <li><span>Kafka</span></li>
+                <li><span>Computer Vision</span></li>
+                <li><span>Keras</span></li>
+                <li><span> PyTorch </span></li>
+                <li><span> Power BI </span></li>
+                <li><span>MySQL</span></li>
+                <li><span>HTML</span></li>
+                <li><span>CSS</span></li>
+                <li><span>React</span></li>
+                <li><span>React-native</span></li>
+                <li><span>Deployment-Azure</span></li>
+                <li><span>Matlab</span></li>
+                <li><span>Embedded system</span></li>
+                <li><span>C and C++</span></li>
+                <li><span>Embedded C</span></li>
+                <li><span> Pyspark</span></li>
+               
+            </ul>
+        </div>
+    </section>
+
+    <section id="experience" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Experience</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="experience-card">
+                        <div class="card-content">
+                            <h3 class="card-title">Senior Software Engineer</h3>
+                            <p>Zhilon Solutions | Karungal, India</p>
+                            <p>August 2023 - Current</p>
+                            <div style="margin-left: 205px;">
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#experienceModal1">
+                                    More Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="experience-card">
+                        <div class="card-content">
+                            <h3 class="card-title">Software Engineer A3:</h3>
+                            <p>Partnersoft Technology | Chennai, India</p>
+                            <p>October 2022 - July 2023</p>
+                            <div style="margin-left: 205px;">
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#experienceModal2">
+                                    More Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="experience-card">
+                        <div class="card-content">
+                            <h3 class="card-title">Python Programmer:</h3>
+                            <p>Mentor Thesis-Marthandam, India</p>
+                            <p>November 2021 - October 2022</p>
+                            <div style="margin-left: 205px;">
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#experienceModal3">
+                                    More Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="experience-card">
+                        <div class="card-content">
+                            <h3 class="card-title">Software Technical Trainee</h3>
+                            <p>IBM (Adroit Technologies) | Coimbatore, India</p>
+                            <p>September 2020 - October 2021</p>
+                            <div style="margin-left: 205px;">
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#experienceModal4">
+                                    More Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="experience-card">
+                        <div class="card-content">
+                            <h3 class="card-title">Embedded Trainer</h3>
+                            <p>Xplore IT Corp | Coimbatore, India</p>
+                            <p>Jan 2020 - September 2020</p>
+                            <div style="margin-left: 205px;">
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#experienceModal5">
+                                    More Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="experience-card">
+                        <div class="card-content">
+                            <h3 class="card-title">Assistant Professor</h3>
+                            <p>Park College of Engineering and Technology | Coimbatore, India</p>
+                            <p>April 2014- December 2019</p>
+                            <div style="margin-left: 205px;">
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#experienceModal6">
+                                    More Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Modal Dialogs -->
+        <!-- Modal 1 -->
+        <div class="modal fade" id="experienceModal1" tabindex="-1" aria-labelledby="experienceModalLabel1" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content" style="background-color: var(--bg-color); color: var(--text-color); border: 1px solid var(--primary-color);">
+                    <div class="modal-header border-bottom border-primary">
+                        <h5 class="modal-title" id="experienceModalLabel1" style="color: var(--primary-color);">Senior Software Engineer Details</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                        
+                            <div class="col-md-8">
+                                <div class="experience-details">
+                                    <h6 class="text-primary mb-3">Key Responsibilities & Achievements:</h6>
+                                    <ul class="list-unstyled">
+                                        <li class="mb-2">
+                                            <i class="fas fa-check-circle text-primary me-2"></i>
+                                            Experience in developing Full stack project from scratch with database and API design
+                                        </li>
+                                        <li class="mb-2">
+                                            <i class="fas fa-check-circle text-primary me-2"></i>
+                                            Experience in developing Mobile App project using React-native
+                                        </li>
+                                        <li class="mb-2">
+                                            <i class="fas fa-check-circle text-primary me-2"></i>
+                                            Led teams in developing e-commerce platforms, job portals, face recognition solutions, and school management projects.
+                                        </li>
+                                        
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer border-top border-primary">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Modal 2 -->
+        <div class="modal fade" id="experienceModal2" tabindex="-1" aria-labelledby="experienceModalLabel2" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content" style="background-color: var(--bg-color); color: var(--text-color); border: 1px solid var(--primary-color);">
+                    <div class="modal-header border-bottom border-primary">
+                        <h5 class="modal-title" id="experienceModalLabel2" style="color: var(--primary-color);">➢ Software Engineer A3- Details</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="experience-details">
+                                    <h6 class="text-primary mb-3">Key Responsibilities & Achievements:</h6>
+                                    <ul class="list-unstyled">
+                                        <li class="mb-2">
+                                            <i class="fas fa-check-circle text-primary me-2"></i>
+                                            Experience in developing project from scratch using agile method
+                                        </li>
+                                        <li class="mb-2">
+                                            <i class="fas fa-check-circle text-primary me-2"></i>
+                                            Design high level and technical architecture, flow diagram using Gliffy tool
+                                        </li>
+                                        <li class="mb-2">
+                                            <i class="fas fa-check-circle text-primary me-2"></i>
+                                            Led for Virtual try-on Project for creating human avatar and fitting dress with different scenario in Augmented reality
+                                        </li>
+                                        <li class="mb-2">
+                                            <i class="fas fa-check-circle text-primary me-2"></i>
+                                            Worked in Chatbot development Project
+                                        </li>
+                                        <li class="mb-2">
+                                            <i class="fas fa-check-circle text-primary me-2"></i>
+                                            Worked in OCR model Project using NLP logic
+                                        </li>
+                                        <li class="mb-2">
+                                            <i class="fas fa-check-circle text-primary me-2"></i>
+                                            Experience to handle audio and huge size images with Database
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer border-top border-primary">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Modal 3 -->
+        <div class="modal fade" id="experienceModal3" tabindex="-1" aria-labelledby="experienceModalLabel3" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content" style="background-color: var(--bg-color); color: var(--text-color); border: 1px solid var(--primary-color);">
+                    <div class="modal-header border-bottom border-primary">
+                        <h5 class="modal-title" id="experienceModalLabel3" style="color: var(--primary-color);">Python Programmer Details</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="experience-details">
+                                    <h6 class="text-primary mb-3">Key Responsibilities & Achievements:</h6>
+                                    <ul class="list-unstyled">
+                                        <li class="mb-2">
+                                            <i class="fas fa-check-circle text-primary me-2"></i>
+                                            Worked in Breast cancer detection and classification project with deep 
+learning model with Computer vision. (Medical Project-MRI scan) 
+                                        </li>
+                                        <li class="mb-2">
+                                            <i class="fas fa-check-circle text-primary me-2"></i>
+                                            Worked in Human action recognition project for producing subtitle for 
+the given action video 
+                                        </li>
+                                        <li class="mb-2">
+                                            <i class="fas fa-check-circle text-primary me-2"></i>
+                                            Worked in AWS Lambda with serverless logic project with deep learning 
+                                        </li>
+                                        <li class="mb-2">
+                                            <i class="fas fa-check-circle text-primary me-2"></i>
+                                            Worked in Licence plate number detection Project with deep learning 
+                                        </li>
+                                        <li class="mb-2">
+                                            <i class="fas fa-check-circle text-primary me-2"></i>
+                                            Worked in Real and fake face image detection project using Hierarchical 
+Attentional Model
+                                        </li>
+                                        
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer border-top border-primary">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Modal 4 -->
+        <div class="modal fade" id="experienceModal4" tabindex="-1" aria-labelledby="experienceModalLabel4" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content" style="background-color: var(--bg-color); color: var(--text-color); border: 1px solid var(--primary-color);">
+                    <div class="modal-header border-bottom border-primary">
+                        <h5 class="modal-title" id="experienceModalLabel4" style="color: var(--primary-color);">Software Technical Trainee Details</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="experience-details">
+                                    <h6 class="text-primary mb-3">Key Responsibilities & Achievements:</h6>
+                                    <ul class="list-unstyled">
+                                        <li class="mb-2">
+                                            <i class="fas fa-check-circle text-primary me-2"></i>
+                                            Worked on Retail-based customer purchase predition project using 
+TensorFlow. 
+                                        </li>
+                                        <li class="mb-2">
+                                            <i class="fas fa-check-circle text-primary me-2"></i>
+                                            Analysed customer data, purchase history to identify relevant feature for 
+prediction 
+                                        </li>
+                                        <li class="mb-2">
+                                            <i class="fas fa-check-circle text-primary me-2"></i>
+                                            Corporate trainer in AI, Data science, Bigdata
+                                        </li>
+                                        
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer border-top border-primary">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Modal 5 -->
+        <div class="modal fade" id="experienceModal5" tabindex="-1" aria-labelledby="experienceModalLabel5" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content" style="background-color: var(--bg-color); color: var(--text-color); border: 1px solid var(--primary-color);">
+                    <div class="modal-header border-bottom border-primary">
+                        <h5 class="modal-title" id="experienceModalLabel5" style="color: var(--primary-color);">Embedded Trainer Details</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="experience-details">
+                                    <h6 class="text-primary mb-3">Key Responsibilities & Achievements:</h6>
+                                    <ul class="list-unstyled">
+                                        <li class="mb-2">
+                                            <i class="fas fa-check-circle text-primary me-2"></i>
+                                            Experience to handle Embedded C and C training
+                                        </li>
+                                        <li class="mb-2">
+                                            <i class="fas fa-check-circle text-primary me-2"></i>
+                                            Worked on LOOM data project with PIC controller with IOT. 
+                                        </li>
+                                        
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer border-top border-primary">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Modal 6 -->
+        <div class="modal fade" id="experienceModal6" tabindex="-1" aria-labelledby="experienceModalLabel6" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content" style="background-color: var(--bg-color); color: var(--text-color); border: 1px solid var(--primary-color);">
+                    <div class="modal-header border-bottom border-primary">
+                        <h5 class="modal-title" id="experienceModalLabel6" style="color: var(--primary-color);">Senior Software Engineer Details</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="experience-details">
+                                    <h6 class="text-primary mb-3">Key Responsibilities & Achievements:</h6>
+                                    <ul class="list-unstyled">
+                                        <li class="mb-2">
+                                            <i class="fas fa-check-circle text-primary me-2"></i>
+                                            Experience in developing project from scratch using agile method
+                                        </li>
+                                        <li class="mb-2">
+                                            <i class="fas fa-check-circle text-primary me-2"></i>
+                                            Design high level and technical architecture, flow diagram using Gliffy tool
+                                        </li>
+                                        <li class="mb-2">
+                                            <i class="fas fa-check-circle text-primary me-2"></i>
+                                            Led for Virtual try-on Project for creating human avatar and fitting dress with different scenario in Augmented reality
+                                        </li>
+                                        <li class="mb-2">
+                                            <i class="fas fa-check-circle text-primary me-2"></i>
+                                            Worked in Chatbot development Project
+                                        </li>
+                                        <li class="mb-2">
+                                            <i class="fas fa-check-circle text-primary me-2"></i>
+                                            Worked in OCR model Project using NLP logic
+                                        </li>
+                                        <li class="mb-2">
+                                            <i class="fas fa-check-circle text-primary me-2"></i>
+                                            Experience to handle audio and huge size images with Database
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer border-top border-primary">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="education-card">
+                        <div class="card-content">
+                            <h3 class="card-title">M.E</h3>
+                            <p>PET Engineering College</p>
+                            <p>Communication System</p>
+                            <p>Grade: First Class</p>  
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="education-card">
+<div class="card-content">
+                            <h3 class="card-title">B.E</h3>
+                            <p>Vins Christian College of Enginnering</p>
+                            <p>Electronics and Communication</p>
+                            <p>Grade: First Class</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="education-card">
+                        <div class="card-content">
+                            <h3 class="card-title">HSC - 12TH</h3>
+                            <p>St.Mary Gorrety Higher secondary School</p>
+                            <p>Grade: 78.6%</p>
+                            <p>Year: 2006</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="project-card">
+                        <div class="card-content">
+                            <h3 class="card-title">E-commerce website </h3>
+                            <p>Technologies- Django and MySQL</p>
+                            <p>Developed a fully functional e-commerce website with razorpay payment gateway</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="project-card">
+                        <div class="card-content">
+                            <h3 class="card-title">Job Portal website</h3>
+                            <p>Technologies- Django and SQL Server</p>
+                            <p>Developed a fully functional Job Portal website with Azure Active Directory and Blob storage</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="project-card">
+                        <div class="card-content">
+                            <h3 class="card-title">School Management System</h3>
+                            <p>Technologies- Django,MySQL and React</p>
+                            <p>Developed a fully functional School Management System website with Mobile app </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="project-card">
+                        <div class="card-content">
+                            <h3 class="card-title">Face recognition System</h3>
+                            <p>Technologies- Django,MySQL,PyTorch,YOLO</p>
+                            <p>Real-time attendance tracking system using face recognition from streaming video  </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="project-card">
+                        <div class="card-content">
+                            <h3 class="card-title">Chat bot Integration</h3>
+                            <p>Technologies- Django,MySQL,keras,rasa,NLP</p>
+                            <p>Chatbot integration with our website using NLP and Rasa, along with a voice assistant that includes Tamil support. </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="project-card">
+                        <div class="card-content">
+                            <h3 class="card-title">Virtual try-on -Dress</h3>
+                            <p>Flask,MySQL,PyTorch,Computer vision,Mongo DB,Kafka,Rabit MQ,OpenPose,Gan with Resnet</p>
+                            <p> Creating human Avatar and fitting dress with different scenario in Augmented reality with voice and text integration </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="project-card">
+                        <div class="card-content">
+                            <h3 class="card-title">Resume Parser with OCR</h3>
+                            <p>Technologies- Flask,MySQL,keras,Tesseract,NLP</p>
+                            <p>developed real time Resume Parser using combination of regular expressions, NLP models, and pattern matching. </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="project-card">
+                        <div class="card-content">
+                            <h3 class="card-title"> Breast cancer detection and classification</h3>
+                            <p>Technologies- Flask,keras,NLP</p>
+                            <p>Developed a real-time breast cancer detection  and classification system using deep learning models  </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="project-card">
+                        <div class="card-content">
+                            <h3 class="card-title"> Human action recognition </h3>
+                            <p>Technologies- Flask,keras,OpenCV and Pillow</p>
+                            <p>Producing steaming subtitle for the given action video </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="project-card">
+                        <div class="card-content">
+                            <h3 class="card-title">Licence plate number detection</h3>
+                            <p>Technologies- Flask,keras,Yolo,OpenCV and Pillow</p>
+                            <p>Generative number plate details from vechile image in a perfect format </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="project-card">
+                        <div class="card-content">
+                            <h3 class="card-title">Retail-based customer purchase predition </h3>
+                            <p>Technologies- keras,NLP,Machine learning</p>
+                            <p>Analysed customer data, purchase history to identify relevant feature for 
+                                prediction</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="project-card">
+                        <div class="card-content">
+                            <h3 class="card-title">Real time Gereration of Loom data  </h3>
+                            <p>Technologies- IOT,Embedded system,PIC </p>
+                            <p>Gernerating real time data from LOOM sensor and sending it to cloud </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="pp" class="py-5">
+        <div class="container">
+            <h4 class="section-title">Personal projects</h4>
+            <ul class="skills-list">
+                <li><span> Capsule Triple GAN</span></li>
+                <li><span>Hierarchical 
+                    Attention NN</span></li>
+                <li><span> Tree CNN</span></li>
+                <li><span> DeTraC 
+                    deep CNN</span>//span></li>
+                <li><span>Capsule Super Resolution 
+                    GAN</span></li>
+                <li><span>Enhanced 
+                    Capsule GAN</span></li>
+                <li><span>Recalling Enhanced 
+                    RNN</span></li>
+                <li><span> Multihead GAN</span></li>
+             
+                
+            </ul>
+        </div>
+    </section>
+
+    <footer class="text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Contact</h5>
+                    <p>jegusselvaraj@gmail.com</p>
+		    <p>9750750519</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Location</h5>
+                    <p>Nagercoil, 629177, India</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Follow Me</h5>
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <hr>
+            <p>&copy; 2024 Albin jegus. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+    <script>
+
+$(document).ready(function() {
+    // Custom cursor
+    const cursor = document.querySelector('.custom-cursor');
+    
+    document.addEventListener('mousemove', e => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+    });
+
+    $('a, button').hover(
+        function() { cursor.classList.add('hover'); },
+        function() { cursor.classList.remove('hover'); }
+    );
+
+    $('.btn-secondary').hover(
+        function() { cursor.classList.add('hover'); },
+        function() { cursor.classList.remove('hover'); }
+    );
+
+    // Smooth scrolling - reduced from 800ms to 400ms
+    $('a.nav-link, .btn-primary').on('click', function(event) {
+        if (this.hash !== "") {
+            event.preventDefault();
+            var hash = this.hash;
+            $('html, body').animate({
+                scrollTop: $(hash).offset().top - 70
+            }, 400);
+        }
+    });
+
+    // GSAP animations
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Animate skill cards - reduced duration from 1s to 0.5s
+    gsap.utils.toArray(".skill-card").forEach((card) => {
+        gsap.from(card, {
+            y: 100,
+            opacity: 0,
+            duration: 0.5,
+            scrollTrigger: {
+                trigger: card,
+                start: "top 98%", // Changed from 80% to 90% for earlier trigger
+                end: "bottom 10%",
+                toggleActions: "play none none reverse"
+            }
+        });
+    });
+
+    // Animate experience cards - reduced duration from 1s to 0.5s
+    gsap.utils.toArray(".experience-card").forEach((card) => {
+        gsap.from(card, {
+            x: -100,
+            opacity: 0,
+            duration: 0.5,
+            scrollTrigger: {
+                trigger: card,
+                start: "top 98%",
+                end: "bottom 10%",
+                toggleActions: "play none none reverse"
+            }
+        });
+    });
+
+    // Animate education cards - reduced duration from 1s to 0.5s
+    gsap.utils.toArray(".education-card").forEach((card) => {
+        gsap.from(card, {
+            scale: 0.8,
+            opacity: 0,
+            duration: 0.5,
+            scrollTrigger: {
+                trigger: card,
+                start: "top 98%",
+                end: "bottom 10%",
+                toggleActions: "play none none reverse"
+            }
+        });
+    });
+
+    // Animate project cards - reduced duration from 1s to 0.5s
+    gsap.utils.toArray(".project-card").forEach((card) => {
+        gsap.from(card, {
+            y: 100,
+            opacity: 0,
+            duration: 0.5,
+            scrollTrigger: {
+                trigger: card,
+                start: "top 98%",
+                end: "bottom 10%",
+                toggleActions: "play none none reverse"
+            }
+        });
+    });
+
+    // Animate skills list - reduced duration and delay
+    gsap.utils.toArray(".skills-list li").forEach((skill, index) => {
+        gsap.from(skill, {
+            y: 100,
+            opacity: 0,
+            duration: 0.3,
+            delay: index * 0.05, // Reduced from random delay to sequential quick delay
+            scrollTrigger: {
+                trigger: skill,
+                start: "top 98%",
+                end: "bottom 10%",
+                toggleActions: "play none none reverse"
+            }
+        });
+    });
+
+    // Background animation - reduced number of spans and animation duration
+    const backgroundAnimation = document.querySelector('.background-animation');
+    for (let i = 0; i < 30; i++) { // Reduced from 50 to 30 spans
+        const span = document.createElement('span');
+        span.style.top = Math.random() * 100 + '%';
+        span.style.left = Math.random() * 100 + '%';
+        span.style.animationDuration = Math.random() * 5 + 3 + 's'; // Reduced from 10+5s to 5+3s
+        span.style.animationDelay = Math.random() * 2 + 's'; // Reduced from 5s to 2s
+        backgroundAnimation.appendChild(span);
+    }
+});
+    </script>
+</body>
+</html>                                                                                                                                                                             
