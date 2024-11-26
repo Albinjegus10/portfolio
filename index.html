@@ -6,6 +6,9 @@
     <title>Albin Jegus S - Software Developer Portfolio</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
     <style>
         :root {
             --primary-color: #d4af37;
@@ -207,6 +210,14 @@
             margin-bottom: 1rem;
         }
 
+        footer .col-md-4 img {
+    max-width: 80%; /* Ensures the image doesn't exceed the column width */
+    height: auto; /* Maintains the aspect ratio */
+    display: block; /* Removes any inline spacing issues */
+    margin: 0 auto; /* Centers the image horizontally */
+    border-radius: 10px; /* Optional: adds rounded corners */
+}
+
         @keyframes glowText {
             0% {
                 text-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--primary-color), 0 0 30px var(--primary-color);
@@ -224,7 +235,33 @@
                 transform: rotate(360deg);
             }
         }
+        .font-style1 {
+    font-family: 'Arial', sans-serif;
+    font-size: 1.4rem;
+   
+    color: transparent;
+    background: linear-gradient(90deg, #FF5733, #FFBD33);
+    -webkit-background-clip: text;
+    background-clip: text;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
 
+/* Styling for Talk */
+.font-style2 {
+    font-family: 'Cursive', monospace;
+    font-size: 1.4rem;
+    
+    color: #F4E915;
+    text-shadow: 2px 2px 10px rgba(255, 255, 0, 0.8), 0 0 10px rgba(255, 255, 0, 0.5);
+}
+
+/* Centering text and ensuring responsiveness */
+.image-text {
+    display: inline-block;
+    text-align: center;
+    padding: 10px 0;
+    line-height: 1.2;
+}
         footer {
             background-color: var(--secondary-color);
             color: var(--primary-color);
@@ -245,12 +282,15 @@
             opacity: 0.1;
             animation: moveBackground 20s linear infinite;
         }
-
+        
         .social-icon {
             color: var(--primary-color);
             font-size: 2rem;
             margin: 0 15px;
+            z-index: 10;
             transition: all 0.3s ease;
+            cursor: pointer;
+            
         }
 
         .social-icon:hover {
@@ -398,6 +438,12 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
+                <a href="https://www.linkedin.com/in/albin-jegus-03994964/" 
+                class="social-icon" 
+                target="_blank">
+                 <i class="fab fa-linkedin"></i>
+             </a>
+             <a href="https://github.com/Albinjegus10" class="social-icon"><i class="fab fa-github"></i></a>
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="#home">Home</a>
@@ -428,13 +474,13 @@
                 <div class="col-12 col-md-8 text-center text-md-start">
                     <div class="hero-content">
                         <h1 class="text-center text-md-start">Albin Jegus S</h1>
-                        <p class="lead mb-4 text-center text-md-start" style=" color: blue;">AI Engineer | Full-Stack Developer</p>
+                        <p class="lead mb-4 text-center text-md-start" style=" color: hsl(78, 100%, 50%);">AI Engineer | Full-Stack Developer</p>
                         <div class="mb-4 text-center text-md-start">
-                            <p  style="color:var(--primary-color)">
-                                Passionate about leveraging cutting-edge technologies to solve complex problems. 
-                                With expertise in AI, machine learning, and full-stack development, 
+                            <p style="color: var(--primary-color);">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Passionate about leveraging cutting-edge technologies to solve complex problems. 
+                                With expertise in AI, Machine learning, Data and full-stack development, 
                                 I transform innovative ideas into scalable, intelligent solutions.
-                               </p>
+                            </p>
                         </div>
                         <div class="d-flex justify-content-center justify-content-md-start">
                             <a href="#skills" class="btn btn-primary btn-lg me-3">Explore My Skills</a>
@@ -443,7 +489,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-md-4 text-center mb-4 mb-md-0">
-                    <img src="images/jegusnew.png" alt="Albin" class="img-fluid rounded-circle shadow-lg" style="max-width: 250px; border: 4px solid var(--primary-color);">
+                    <img src="images/jegusnew.jpg" alt="Albin" class="img-fluid rounded-circle shadow-lg" style="max-width: 250px;">
                 </div>
             </div>
         </div>
@@ -994,7 +1040,7 @@ prediction
     </section>
     <section id="pp" class="py-5">
         <div class="container">
-            <h4 class="section-title">Personal projects</h4>
+            <h4 class="section-title">Personal AI projects</h4>
             <ul class="skills-list">
                 <li><span> Capsule Triple GAN</span></li>
                 <li><span>Hierarchical 
@@ -1028,10 +1074,12 @@ prediction
                     <p>Nagercoil, 629177, India</p>
                 </div>
                 <div class="col-md-4">
-                    <h5>Follow Me</h5>
-                    <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    
+                    <p class="image-text">
+                        <span class="font-style1">Let's</span>
+                        <br>
+                        <span class="font-style2">...Talk ?</span>
+                    </p>
                 </div>
             </div>
             <hr>
@@ -1167,4 +1215,4 @@ $(document).ready(function() {
 });
     </script>
 </body>
-</html>                                                                                                                                                                             
+</html>                                                                                                                                                                             `
