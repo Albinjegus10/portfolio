@@ -6,8 +6,15 @@
     <title>Albin Jegus S - Software Developer Portfolio</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
+    <meta name="description" content="Albin Jegus S - AI Engineer and Full-Stack Developer Portfolio. Expert in Python, Django, Machine Learning, and Flutter development.">
+    <meta name="keywords" content="AI Engineer, Full-Stack Developer, Python, Django, Machine Learning, Flutter">
+    <meta property="og:title" content="Albin Jegus S - Software Developer Portfolio">
+    <meta property="og:description" content="AI Engineer and Full-Stack Developer specializing in cutting-edge technologies">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="preload" href="images/jegusnew.jpg" as="image">
+    <link rel="preload" href="pdfs/jegus-resume.pdf" as="document">
 
     <style>
         :root {
@@ -94,35 +101,46 @@
             
         }
         @media (max-width: 767px) {
-    .hero {
-        flex-direction: column; /* Stack elements vertically on mobile */
-    }
+            .hero {
+                flex-direction: column; /* Stack elements vertically on mobile */
+            }
 
-    .hero h1 {
-        font-size: 2.5rem; /* Adjust the font size for mobile */
-    }
+            .hero h1 {
+                font-size: 2.5rem; /* Adjust the font size for mobile */
+            }
 
-    .hero p {
-        font-size: 1.2rem; /* Adjust paragraph size for mobile */
-    }
+            .hero p {
+                font-size: 1.2rem; /* Adjust paragraph size for mobile */
+            }
 
-    .btn-primary {
-        padding: 10px 25px; /* Adjust button size for mobile */
-    }
+            .btn-primary {
+                padding: 10px 25px; /* Adjust button size for mobile */
+            }
 
-    .navbar {
-        background-color: rgba(28, 28, 28, 0.9);
-    }
+            .navbar {
+                background-color: rgba(28, 28, 28, 0.9);
+            }
 
-    .navbar-nav {
-        flex-direction: column; /* Stack navbar links on mobile */
-    }
+            .navbar-nav {
+                flex-direction: column; /* Stack navbar links on mobile */
+            }
 
-    .nav-link {
-        font-size: 1.2rem; /* Adjust navbar link size for mobile */
-        padding: 10px 0;
-    }
-}
+            .nav-link {
+                font-size: 1.2rem; /* Adjust navbar link size for mobile */
+                padding: 10px 0;
+            }
+            
+            .experience-card .btn {
+                margin-left: 0 !important;
+                margin-top: 1rem;
+                width: 100%;
+            }
+            
+            .card-content {
+                height: auto;
+                min-height: 250px;
+            }
+        }
 
         .btn-primary::before {
             content: '';
@@ -200,7 +218,19 @@
             position: relative;
             z-index: 1;
             padding: 2rem;
-	    height: 35vh;
+            height: 300px; /* Fixed height for all cards */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .card-content p {
+            margin-bottom: 0.5rem;
+        }
+        
+        .card-content .btn {
+            align-self: flex-end;
+            margin-top: auto;
         }
   
 
@@ -489,7 +519,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-md-4 text-center mb-4 mb-md-0">
-                    <img src="images/jegusnew.jpg" alt="Albin" class="img-fluid rounded-circle shadow-lg" style="max-width: 250px;">
+                    <img src="images/jegusnew.jpg" alt="Albin Jegus S - AI Engineer and Full-Stack Developer" class="img-fluid rounded-circle shadow-lg" style="max-width: 250px;">
                 </div>
             </div>
         </div>
@@ -507,8 +537,10 @@
                 <li><span>Kafka</span></li>
                 <li><span>Computer Vision</span></li>
                 <li><span>Keras</span></li>
-                <li><span> PyTorch </span></li>
+                <li><span>PyTorch</span></li>
                 <li><span> Power BI </span></li>
+                <li><span> Flutter </span></li>
+                <li><span> Bio Python </span></li>
                 <li><span>MySQL</span></li>
                 <li><span>HTML</span></li>
                 <li><span>CSS</span></li>
@@ -535,8 +567,8 @@
                             <h3 class="card-title">Senior Software Engineer</h3>
                             <p>Zhilon Solutions | Karungal, India</p>
                             <p>August 2023 - Current</p>
-                            <div style="margin-left: 205px;">
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#experienceModal1">
+                            <div>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#experienceModal1" aria-label="View Senior Software Engineer details">
                                     More Details
                                 </button>
                             </div>
@@ -549,7 +581,7 @@
                             <h3 class="card-title">Software Engineer A3:</h3>
                             <p>Partnersoft Technology | Chennai, India</p>
                             <p>October 2022 - July 2023</p>
-                            <div style="margin-left: 205px;">
+                            <div>
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#experienceModal2">
                                     More Details
                                 </button>
@@ -563,7 +595,7 @@
                             <h3 class="card-title">Python Programmer:</h3>
                             <p>Mentor Thesis-Marthandam, India</p>
                             <p>November 2021 - October 2022</p>
-                            <div style="margin-left: 205px;">
+                            <div>
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#experienceModal3">
                                     More Details
                                 </button>
@@ -577,7 +609,7 @@
                             <h3 class="card-title">Software Technical Trainee</h3>
                             <p>IBM (Adroit Technologies) | Coimbatore, India</p>
                             <p>September 2020 - October 2021</p>
-                            <div style="margin-left: 205px;">
+                            <div>
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#experienceModal4">
                                     More Details
                                 </button>
@@ -591,7 +623,7 @@
                             <h3 class="card-title">Embedded Trainer</h3>
                             <p>Xplore IT Corp | Coimbatore, India</p>
                             <p>Jan 2020 - September 2020</p>
-                            <div style="margin-left: 205px;">
+                            <div>
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#experienceModal5">
                                     More Details
                                 </button>
@@ -605,7 +637,7 @@
                             <h3 class="card-title">Assistant Professor</h3>
                             <p>Park College of Engineering and Technology | Coimbatore, India</p>
                             <p>April 2014- December 2019</p>
-                            <div style="margin-left: 205px;">
+                            <div>
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#experienceModal6">
                                     More Details
                                 </button>
@@ -638,7 +670,7 @@
                                         </li>
                                         <li class="mb-2">
                                             <i class="fas fa-check-circle text-primary me-2"></i>
-                                            Experience in developing Mobile App project using React-native
+                                            Experience in developing Mobile App project using Flutter
                                         </li>
                                         <li class="mb-2">
                                             <i class="fas fa-check-circle text-primary me-2"></i>
@@ -929,6 +961,24 @@ prediction
                 <div class="col-md-6">
                     <div class="project-card">
                         <div class="card-content">
+                            <h3 class="card-title">Habit Tracker</h3>
+                            <p>Technologies- Flutter,Dart,Django,MySQL</p>
+                            <p>Developed standard Mobile app for tracking habits with daily,weekly,monthly and yearly progress tracking</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="project-card">
+                        <div class="card-content">
+                            <h3 class="card-title">Location based attendance app</h3>
+                            <p>Technologies- Flutter,Dart,Django,MySQL,Firebase</p>
+                            <p>Developed standard Mobile app for tracking attendance with location based attendance system</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="project-card">
+                        <div class="card-content">
                             <h3 class="card-title">E-commerce website </h3>
                             <p>Technologies- Django and MySQL</p>
                             <p>Developed a fully functional e-commerce website with razorpay payment gateway</p>
@@ -1047,7 +1097,7 @@ prediction
                     Attention NN</span></li>
                 <li><span> Tree CNN</span></li>
                 <li><span> DeTraC 
-                    deep CNN</span>//span></li>
+                    deep CNN</span></li>
                 <li><span>Capsule Super Resolution 
                     GAN</span></li>
                 <li><span>Enhanced 
@@ -1212,7 +1262,22 @@ $(document).ready(function() {
         span.style.animationDelay = Math.random() * 2 + 's'; // Reduced from 5s to 2s
         backgroundAnimation.appendChild(span);
     }
+
+    // Add error handling and performance improvements
+    if (typeof gsap !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
+        // ... rest of your GSAP code
+    } else {
+        console.warn('GSAP not loaded');
+    }
+    
+    // Add loading state for images
+    $('img').on('load', function() {
+        $(this).addClass('loaded');
+    }).on('error', function() {
+        console.error('Image failed to load:', this.src);
+    });
 });
     </script>
 </body>
-</html>                                                                                                                                                                             `
+</html>
