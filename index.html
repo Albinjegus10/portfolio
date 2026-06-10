@@ -145,6 +145,8 @@
         .hero-photo-wrap {
             position: relative;
             display: inline-block;
+            opacity: 0;
+            animation: heroFadeIn 0.7s ease 0.3s forwards;
         }
 
         .hero-photo-wrap::before {
@@ -157,11 +159,24 @@
             animation: rotate 8s linear infinite;
         }
 
-        .animate-on-scroll {
-            opacity: 1;
-            visibility: visible;
-            transform: none;
+        @keyframes heroFadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
+
+        .hero-content > * {
+            opacity: 0;
+            animation: heroFadeIn 0.6s ease forwards;
+        }
+
+        .hero-content > *:nth-child(1) { animation-delay: 0.05s; }
+        .hero-content > *:nth-child(2) { animation-delay: 0.12s; }
+        .hero-content > *:nth-child(3) { animation-delay: 0.19s; }
+        .hero-content > *:nth-child(4) { animation-delay: 0.26s; }
+        .hero-content > *:nth-child(5) { animation-delay: 0.33s; }
+        .hero-content > *:nth-child(6) { animation-delay: 0.40s; }
+        .hero-content > *:nth-child(7) { animation-delay: 0.47s; }
+        .hero-content > *:nth-child(8) { animation-delay: 0.54s; }
 
         .btn-primary {
             background-color: var(--primary-color);
@@ -1026,117 +1041,27 @@
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script>
-        (function() {
-            // Smooth scroll for in-page links
-            document.querySelectorAll('a[href^="#"]').forEach(function(link) {
-                link.addEventListener('click', function(event) {
-                    const hash = this.getAttribute('href');
-                    if (!hash || hash === '#') return;
-                    const target = document.querySelector(hash);
-                    if (!target) return;
-                    event.preventDefault();
-                    window.scrollTo({
-                        top: target.offsetTop - 70,
-                        behavior: 'smooth'
-                    });
-                });
+        document.querySelectorAll('a[href^="#"]').forEach(function(link) {
+            link.addEventListener('click', function(event) {
+                const hash = this.getAttribute('href');
+                if (!hash || hash === '#') return;
+                const target = document.querySelector(hash);
+                if (!target) return;
+                event.preventDefault();
+                window.scrollTo({ top: target.offsetTop - 70, behavior: 'smooth' });
             });
+        });
 
-            // Background particles
-            const backgroundAnimation = document.querySelector('.background-animation');
-            if (backgroundAnimation) {
-                for (let i = 0; i < 25; i++) {
-                    const span = document.createElement('span');
-                    span.style.top = Math.random() * 100 + '%';
-                    span.style.left = Math.random() * 100 + '%';
-                    backgroundAnimation.appendChild(span);
-                }
+        const backgroundAnimation = document.querySelector('.background-animation');
+        if (backgroundAnimation) {
+            for (let i = 0; i < 25; i++) {
+                const span = document.createElement('span');
+                span.style.top = Math.random() * 100 + '%';
+                span.style.left = Math.random() * 100 + '%';
+                backgroundAnimation.appendChild(span);
             }
-
-            function initAnimations() {
-                if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
-
-                gsap.registerPlugin(ScrollTrigger);
-
-                const animateCards = (selector, fromVars) => {
-                    gsap.utils.toArray(selector).forEach((el) => {
-                        gsap.from(el, {
-                            ...fromVars,
-                            duration: 0.5,
-                            ease: 'power2.out',
-                            immediateRender: false,
-                            scrollTrigger: {
-                                trigger: el,
-                                start: 'top 92%',
-                                once: true,
-                                invalidateOnRefresh: true
-                            }
-                        });
-                    });
-                };
-
-                animateCards('.experience-card', { x: -60, opacity: 0 });
-                animateCards('.education-card', { scale: 0.9, opacity: 0 });
-                animateCards('.project-card', { y: 60, opacity: 0 });
-
-                // Animate skill lists by container (avoids 50+ triggers causing blank first load)
-                gsap.utils.toArray('.skills-list').forEach((list) => {
-                    gsap.from(list.children, {
-                        y: 40,
-                        opacity: 0,
-                        duration: 0.4,
-                        stagger: 0.03,
-                        ease: 'power2.out',
-                        immediateRender: false,
-                        scrollTrigger: {
-                            trigger: list,
-                            start: 'top 90%',
-                            once: true,
-                            invalidateOnRefresh: true
-                        }
-                    });
-                });
-
-                // Hero entrance (always visible on load)
-                gsap.from('.hero-content > *', {
-                    y: 30,
-                    opacity: 0,
-                    duration: 0.6,
-                    stagger: 0.08,
-                    ease: 'power2.out',
-                    delay: 0.1
-                });
-
-                gsap.from('.hero-photo-wrap', {
-                    scale: 0.85,
-                    opacity: 0,
-                    duration: 0.7,
-                    ease: 'power2.out',
-                    delay: 0.3
-                });
-
-                ScrollTrigger.refresh();
-            }
-
-            // Wait for full page load (fonts, images, layout) before ScrollTrigger calc
-            window.addEventListener('load', function() {
-                initAnimations();
-                setTimeout(function() { ScrollTrigger.refresh(); }, 100);
-            });
-
-            window.addEventListener('resize', function() {
-                if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
-            });
-
-            if (document.fonts && document.fonts.ready) {
-                document.fonts.ready.then(function() {
-                    if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
-                });
-            }
-        })();
+        }
     </script>
 </body>
 </html>
