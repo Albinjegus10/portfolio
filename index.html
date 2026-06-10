@@ -233,6 +233,12 @@
             font-size: 1.5rem;
         }
 
+        .project-tech {
+            color: var(--accent-color);
+            font-size: 0.95rem;
+            margin-bottom: 0.75rem;
+        }
+
         .experience-card, .education-card, .project-card {
             background-color: rgba(255, 255, 255, 0.05);
             border: 1px solid var(--primary-color);
@@ -521,13 +527,20 @@
 
     <section id="skills" class="py-5">
         <div class="container">
-            <h2 class="section-title">Skills</h2>
+            <h2 class="section-title">Technical Skills</h2>
+
+            <h4 class="subsection-title">Programming Languages</h4>
             <ul class="skills-list">
                 <li><span>Python</span></li>
-                <li><span>C / C++</span></li>
+                <li><span>C</span></li>
+                <li><span>C++</span></li>
                 <li><span>JavaScript</span></li>
                 <li><span>Embedded C</span></li>
                 <li><span>MATLAB</span></li>
+            </ul>
+
+            <h4 class="subsection-title">AI / ML Technologies</h4>
+            <ul class="skills-list">
                 <li><span>TensorFlow</span></li>
                 <li><span>PyTorch</span></li>
                 <li><span>Keras</span></li>
@@ -539,16 +552,30 @@
                 <li><span>Transformers</span></li>
                 <li><span>BERT</span></li>
                 <li><span>LLM (LLaMA)</span></li>
-                <li><span>RAG Pipelines</span></li>
-                <li><span>MLOps</span></li>
                 <li><span>NVIDIA CUDA</span></li>
-                <li><span>n8n Automation</span></li>
+                <li><span>cuDNN</span></li>
+                <li><span>MLOps</span></li>
+                <li><span>RAG Pipelines</span></li>
+            </ul>
+
+            <h4 class="subsection-title">Automation &amp; Integration</h4>
+            <ul class="skills-list">
+                <li><span>n8n Workflow Automation</span></li>
+                <li><span>Pabbly Chatflow</span></li>
                 <li><span>Pabbly Connect</span></li>
                 <li><span>WhatsApp Business API</span></li>
+            </ul>
+
+            <h4 class="subsection-title">Industrial AI &amp; IoT</h4>
+            <ul class="skills-list">
                 <li><span>Predictive Maintenance</span></li>
                 <li><span>Time-Series Forecasting</span></li>
                 <li><span>OPC-UA</span></li>
-                <li><span>PLC Integration</span></li>
+                <li><span>PLC Data Integration</span></li>
+            </ul>
+
+            <h4 class="subsection-title">Web Technologies</h4>
+            <ul class="skills-list">
                 <li><span>Django</span></li>
                 <li><span>Flask</span></li>
                 <li><span>FastAPI</span></li>
@@ -556,23 +583,45 @@
                 <li><span>RabbitMQ</span></li>
                 <li><span>Artemis MQ</span></li>
                 <li><span>React.js</span></li>
-                <li><span>React Native</span></li>
+                <li><span>React Native (Expo)</span></li>
                 <li><span>Flutter</span></li>
-                <li><span>Azure Cloud</span></li>
+            </ul>
+
+            <h4 class="subsection-title">Cloud &amp; DevOps</h4>
+            <ul class="skills-list">
+                <li><span>Azure Cloud Services</span></li>
                 <li><span>Docker</span></li>
                 <li><span>Jenkins CI/CD</span></li>
+                <li><span>Nginx</span></li>
+                <li><span>DigitalOcean</span></li>
+                <li><span>Bluehost</span></li>
+            </ul>
+
+            <h4 class="subsection-title">Databases</h4>
+            <ul class="skills-list">
                 <li><span>MySQL</span></li>
                 <li><span>MongoDB</span></li>
-                <li><span>InfluxDB</span></li>
+                <li><span>InfluxDB 3</span></li>
                 <li><span>Vector Databases</span></li>
+            </ul>
+
+            <h4 class="subsection-title">Data Analysis</h4>
+            <ul class="skills-list">
                 <li><span>Power BI</span></li>
                 <li><span>Pandas</span></li>
+                <li><span>Matplotlib</span></li>
+                <li><span>Seaborn</span></li>
                 <li><span>PySpark</span></li>
                 <li><span>Grafana</span></li>
-                <li><span>8051 / PIC / ARM</span></li>
+            </ul>
+
+            <h4 class="subsection-title">Embedded Systems</h4>
+            <ul class="skills-list">
+                <li><span>8051</span></li>
+                <li><span>PIC</span></li>
+                <li><span>ARM</span></li>
                 <li><span>Raspberry Pi</span></li>
                 <li><span>IoT</span></li>
-                <li><span>HTML / CSS</span></li>
             </ul>
         </div>
     </section>
@@ -842,23 +891,16 @@
 
     <section id="projects" class="py-5">
         <div class="container">
-            <h2 class="section-title">Projects</h2>
+            <h2 class="section-title">Key Projects</h2>
+
+            <h4 class="subsection-title">Kaira Technology — Senior Software Developer</h4>
             <div class="row">
                 <div class="col-md-6">
                     <div class="project-card">
                         <div class="card-content">
-                            <h3 class="card-title">Industrial Predictive Maintenance</h3>
-                            <p>OPC-UA, Kafka, InfluxDB, Grafana, LSTM</p>
-                            <p>End-to-end Industrial IoT platform for real-time machine monitoring, anomaly detection, and failure prediction across PLC-controlled manufacturing systems.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="project-card">
-                        <div class="card-content">
                             <h3 class="card-title">Project Management System (PMS)</h3>
-                            <p>SaaS, Django, React</p>
-                            <p>Comprehensive SaaS platform with attendance, tasks, KPI tracking, payroll, leave management, notifications, and role-based access control.</p>
+                            <p class="project-tech">SaaS Platform</p>
+                            <p>Comprehensive SaaS-based Project Management System featuring employee attendance, task management, KPI tracking, payroll management, announcements, reporting dashboards, leave management, notifications, document management, and role-based access control.</p>
                         </div>
                     </div>
                 </div>
@@ -866,35 +908,39 @@
                     <div class="project-card">
                         <div class="card-content">
                             <h3 class="card-title">Digital VCard Platform</h3>
-                            <p>Full Stack, Payment Integration</p>
-                            <p>Digital business card platform with dynamic profiles, QR codes, analytics, payment integration, and subscription management.</p>
+                            <p class="project-tech">Full Stack, Payment Integration</p>
+                            <p>Digital business card platform with dynamic profile management, custom card themes, QR code generation, contact sharing, analytics, payment integration, and subscription management features.</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="project-card">
                         <div class="card-content">
-                            <h3 class="card-title">WhatsApp Workflow Automation</h3>
-                            <p>n8n, Pabbly, Meta Cloud API</p>
-                            <p>Business automation workflows integrating CRM, Google services, APIs, and databases for customer engagement.</p>
+                            <h3 class="card-title">WhatsApp &amp; Workflow Automation</h3>
+                            <p class="project-tech">WhatsApp Business API, Meta Cloud API, n8n, Pabbly Connect</p>
+                            <p>Automation workflows integrating CRM systems, Google services, APIs, and databases to streamline business operations and customer engagement.</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="project-card">
                         <div class="card-content">
-                            <h3 class="card-title">AI Voice Agent</h3>
-                            <p>Speech Recognition, Conversational AI</p>
-                            <p>AI-powered voice assistant with telephony integrations and real-time response processing for customer interactions.</p>
+                            <h3 class="card-title">AI Voice Agent Development</h3>
+                            <p class="project-tech">Speech Recognition, Conversational AI, Telephony</p>
+                            <p>AI-powered voice assistant solutions with speech recognition, conversational AI, telephony integrations, and real-time response processing for customer interaction use cases.</p>
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <h4 class="subsection-title">Zhilon Solutions — Senior Software Developer</h4>
+            <div class="row">
                 <div class="col-md-6">
                     <div class="project-card">
                         <div class="card-content">
-                            <h3 class="card-title">E-commerce Platform</h3>
-                            <p>Django, MySQL, Razorpay</p>
-                            <p>Multi-vendor e-commerce website with secure payment gateway and modular scalable architecture.</p>
+                            <h3 class="card-title">AI-Based Industrial Predictive Maintenance</h3>
+                            <p class="project-tech">OPC-UA, Kafka, InfluxDB, Grafana, LSTM</p>
+                            <p>End-to-end Industrial IoT and AI-driven Predictive Maintenance System for real-time monitoring and failure prediction across PLC-controlled manufacturing machines. OPC-UA edge acquisition, Kafka streaming pipeline, Grafana dashboards, and LSTM models for anomaly detection and maintenance forecasting.</p>
                         </div>
                     </div>
                 </div>
@@ -902,26 +948,35 @@
                     <div class="project-card">
                         <div class="card-content">
                             <h3 class="card-title">Job Portal Website</h3>
-                            <p>Django, Azure AD, Blob Storage</p>
-                            <p>Enterprise job portal with Azure Active Directory authentication and secure document handling.</p>
+                            <p class="project-tech">Azure, Azure Blob Storage, Azure Active Directory</p>
+                            <p>Comprehensive job portal deployed on Azure with integrated Blob Storage for secure document handling and Azure Active Directory for enterprise authentication.</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="project-card">
                         <div class="card-content">
-                            <h3 class="card-title">School Management System</h3>
-                            <p>Django, MySQL, React, React Native</p>
-                            <p>SaaS ERP for school operations including enrolment, staff management, academic tracking, and mobile app.</p>
+                            <h3 class="card-title">School Management System (SaaS)</h3>
+                            <p class="project-tech">Django, MySQL, React</p>
+                            <p>Scalable ERP solution for complete school operations including enrolment, staff management, and academic tracking with comprehensive reporting capabilities.</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="project-card">
                         <div class="card-content">
-                            <h3 class="card-title">Flutter Attendance System</h3>
-                            <p>Flutter, GPS, Geofencing</p>
-                            <p>Location-aware attendance tracking with live GPS and geofencing for enhanced security.</p>
+                            <h3 class="card-title">E-commerce Platform</h3>
+                            <p class="project-tech">Django, MySQL</p>
+                            <p>Full-featured multi-vendor shopping system with secure payment processing and modular architecture for scalability.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="project-card">
+                        <div class="card-content">
+                            <h3 class="card-title">Flutter-based Attendance System</h3>
+                            <p class="project-tech">Flutter, GPS, Geofencing</p>
+                            <p>Location-aware attendance tracking application with live GPS tracking and geofencing capabilities for enhanced security.</p>
                         </div>
                     </div>
                 </div>
@@ -929,8 +984,8 @@
                     <div class="project-card">
                         <div class="card-content">
                             <h3 class="card-title">Face Recognition System</h3>
-                            <p>Django, PyTorch, YOLO</p>
-                            <p>Real-time attendance and access control using YOLO-based facial recognition from streaming video.</p>
+                            <p class="project-tech">YOLO, PyTorch, Django</p>
+                            <p>YOLO-based real-time facial recognition module for secure attendance and access control with integrated admin dashboard.</p>
                         </div>
                     </div>
                 </div>
@@ -938,35 +993,61 @@
                     <div class="project-card">
                         <div class="card-content">
                             <h3 class="card-title">Medical Recommendation System</h3>
-                            <p>Llama-2-7b-hf, RAG, MLOps</p>
-                            <p>Advanced AI medical recommendation model with custom dataset, RAG logic, and MLOps pipeline.</p>
+                            <p class="project-tech">Llama-2-7b-hf, RAG, MLOps</p>
+                            <p>Advanced AI model using Llama-2-7b-hf with custom dataset implementation using RAG logic and MLOps pipeline.</p>
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <h4 class="subsection-title">Partnersoft Technology — Software Engineer A3</h4>
+            <div class="row">
                 <div class="col-md-6">
                     <div class="project-card">
                         <div class="card-content">
                             <h3 class="card-title">Virtual Try-On System (3D)</h3>
-                            <p>Flask, PyTorch, AR, OpenPose, GAN</p>
-                            <p>AR-based virtual clothing simulation with human avatar creation and voice/text integration.</p>
+                            <p class="project-tech">AR, Computer Vision, Image &amp; Depth Processing</p>
+                            <p>AR-based virtual clothing simulation platform enabling users to try outfits in real-time using advanced image and depth processing algorithms.</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="project-card">
                         <div class="card-content">
-                            <h3 class="card-title">Resume Parser with OCR</h3>
-                            <p>Flask, Keras, Tesseract, NLP</p>
-                            <p>Real-time resume parser using regex, NLP models, and pattern matching for structured data extraction.</p>
+                            <h3 class="card-title">OCR &amp; Document Digitization</h3>
+                            <p class="project-tech">OCR, NLP, Custom Pipeline</p>
+                            <p>Custom OCR pipeline enhanced with NLP capabilities for extracting structured data from scanned documents with high accuracy.</p>
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <h4 class="subsection-title">Mentor Thesis — Python Programmer</h4>
+            <div class="row">
                 <div class="col-md-6">
                     <div class="project-card">
                         <div class="card-content">
                             <h3 class="card-title">Breast Cancer Detection</h3>
-                            <p>Flask, Keras, Computer Vision</p>
-                            <p>Deep learning classification system for MRI scans achieving 98% accuracy for early-stage detection.</p>
+                            <p class="project-tech">Deep Learning, MRI, Computer Vision</p>
+                            <p>Deep learning model using MRI scans, achieving 98% accuracy for early-stage breast cancer classification.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="project-card">
+                        <div class="card-content">
+                            <h3 class="card-title">Human Action Recognition</h3>
+                            <p class="project-tech">Computer Vision, Video Analytics</p>
+                            <p>Video analytics system that recognized human activities and generated real-time subtitles using computer vision techniques.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="project-card">
+                        <div class="card-content">
+                            <h3 class="card-title">Serverless ML Deployment</h3>
+                            <p class="project-tech">AWS Lambda, API Gateway</p>
+                            <p>Deployed ML models using AWS Lambda and API Gateway, ensuring scalability and reduced infrastructure costs.</p>
                         </div>
                     </div>
                 </div>
@@ -974,17 +1055,52 @@
                     <div class="project-card">
                         <div class="card-content">
                             <h3 class="card-title">License Plate Detection</h3>
-                            <p>Flask, Keras, YOLO, OpenCV</p>
-                            <p>Real-time vehicle license plate recognition optimized for traffic surveillance environments.</p>
+                            <p class="project-tech">Deep Learning, OpenCV</p>
+                            <p>Real-time vehicle license plate recognition system optimized for traffic surveillance environments.</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="project-card">
                         <div class="card-content">
-                            <h3 class="card-title">IoT LOOM Monitoring</h3>
-                            <p>PIC, IoT, Embedded Systems</p>
-                            <p>Real-time data generation from LOOM sensors with cloud integration for textile manufacturing analytics.</p>
+                            <h3 class="card-title">Face Authentication System</h3>
+                            <p class="project-tech">Hierarchical Attentional Model</p>
+                            <p>Biometric authentication system using Hierarchical Attentional Model for high-accuracy face verification.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h4 class="subsection-title">IBM (Adroit Technologies) — Software Technical Trainee</h4>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="project-card">
+                        <div class="card-content">
+                            <h3 class="card-title">Retail Purchase Prediction</h3>
+                            <p class="project-tech">TensorFlow, Machine Learning</p>
+                            <p>ML models using TensorFlow to forecast customer buying behavior and optimize inventory strategies for retail clients.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="project-card">
+                        <div class="card-content">
+                            <h3 class="card-title">Customer Behavior Analysis</h3>
+                            <p class="project-tech">Pandas, NumPy, Data Visualization</p>
+                            <p>Advanced data analysis using Pandas, NumPy, and visualization libraries to uncover actionable trends in large-scale customer datasets.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h4 class="subsection-title">Xplore IT Corp — Embedded Trainer</h4>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="project-card">
+                        <div class="card-content">
+                            <h3 class="card-title">IoT-Based LOOM Monitoring System</h3>
+                            <p class="project-tech">PIC Microcontroller, IoT</p>
+                            <p>Real-time monitoring solution using PIC microcontroller for data acquisition and analytics in textile manufacturing environments.</p>
                         </div>
                     </div>
                 </div>
