@@ -60,18 +60,107 @@
             z-index: -1;
         }
 
-        .hero-content { z-index: 1; }
+        .hero-content { z-index: 1; text-align: left; }
 
         .hero h1 {
             font-size: clamp(2.5rem, 5vw, 5rem);
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
             animation: glowText 2s infinite alternate;
         }
 
         .hero .lead {
             color: var(--primary-color);
-            font-size: 1.8rem;
-            margin-bottom: 2rem;
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.15);
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-summary {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: rgba(248, 248, 248, 0.92);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-summary strong {
+            color: var(--primary-color);
+        }
+
+        .hero-highlights {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-highlights span {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            color: var(--primary-color);
+            padding: 6px 14px;
+            border-radius: 16px;
+            font-size: 0.9rem;
+        }
+
+        .hero-contact {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem 1.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .hero-contact a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .hero-contact a:hover { color: var(--primary-color); }
+
+        .hero-contact i {
+            color: var(--primary-color);
+            margin-right: 6px;
+        }
+
+        .hero-photo {
+            max-width: 300px;
+            border: 4px solid var(--primary-color);
+            background: rgba(255, 255, 255, 0.05);
+            object-fit: cover;
+            aspect-ratio: 1;
+        }
+
+        .hero-photo-wrap {
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero-photo-wrap::before {
+            content: '';
+            position: absolute;
+            inset: -8px;
+            border-radius: 50%;
+            border: 2px solid var(--accent-color);
+            opacity: 0.5;
+            animation: rotate 8s linear infinite;
+        }
+
+        .animate-on-scroll {
+            opacity: 1;
+            visibility: visible;
+            transform: none;
         }
 
         .btn-primary {
@@ -332,8 +421,13 @@
             border: 1px solid var(--primary-color);
         }
 
+        .hero .btn-secondary { margin-left: 0; }
+
         @media (max-width: 768px) {
-            .btn-secondary { margin-left: 0; margin-top: 1rem; }
+            .hero-content { text-align: center; }
+            .hero-contact { justify-content: center; }
+            .hero-highlights { justify-content: center; }
+            .d-flex.flex-wrap.gap-2 { justify-content: center; }
         }
     </style>
 </head>
@@ -362,26 +456,49 @@
     <section id="home" class="hero">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-md-8">
+                <div class="col-lg-8">
                     <div class="hero-content">
+                        <span class="hero-badge"><i class="fas fa-award me-2"></i>10+ Years of Technical Experience</span>
                         <h1>Albin Jegus S</h1>
-                        <p class="lead mb-4">AI/ML Solutions Architect | Full Stack Developer</p>
-                        <div class="mb-4">
-                            <p class="text-light">
-                                AI/ML Solutions Architect and Senior Full Stack Developer with 10+ years of technical experience.
-                                Specialized in Generative AI, Industrial AI, Predictive Maintenance, RAG-based LLM systems,
-                                SaaS platform development, and cloud-native application architecture. Proven record of
-                                delivering end-to-end AI-powered products across manufacturing, healthcare, education, and enterprise domains.
-                            </p>
+                        <p class="lead">AI/ML Solutions Architect | Full Stack Developer</p>
+
+                        <div class="hero-contact">
+                            <a href="mailto:jegusselvaraj@gmail.com"><i class="fas fa-envelope"></i>jegusselvaraj@gmail.com</a>
+                            <a href="tel:+919750750519"><i class="fas fa-phone"></i>+91 9750750519</a>
+                            <span><i class="fas fa-map-marker-alt"></i>Nagercoil, India</span>
                         </div>
-                        <div>
-                            <a href="#skills" class="btn btn-primary btn-lg me-3">Explore My Skills</a>
+
+                        <h5 class="text-primary mb-2">Professional Summary</h5>
+                        <p class="hero-summary">
+                            <strong>AI/ML Solutions Architect</strong> and <strong>Senior Full Stack Developer</strong> with over a decade of experience architecting intelligent, production-ready systems. I design and deliver end-to-end solutions spanning Generative AI, Industrial IoT, and cloud-native SaaS platforms.
+                        </p>
+                        <p class="hero-summary">
+                            Core expertise includes <strong>Generative AI</strong>, <strong>Industrial AI</strong>, <strong>Predictive Maintenance</strong>, <strong>RAG-based LLM systems</strong>, workflow automation (n8n, WhatsApp API), and scalable full-stack development. Proven track record building AI-powered products for manufacturing, healthcare, education, and enterprise clients — from PLC data pipelines and LSTM failure prediction to Llama-2 RAG medical systems and multi-tenant SaaS platforms.
+                        </p>
+
+                        <div class="hero-highlights">
+                            <span>Generative AI &amp; LLMs</span>
+                            <span>Industrial IoT &amp; OPC-UA</span>
+                            <span>SaaS &amp; Cloud Architecture</span>
+                            <span>RAG &amp; MLOps</span>
+                            <span>Full Stack Development</span>
+                        </div>
+
+                        <div class="d-flex flex-wrap gap-2">
+                            <a href="#skills" class="btn btn-primary btn-lg">Explore My Skills</a>
+                            <a href="#experience" class="btn btn-primary btn-lg">View Experience</a>
                             <a href="pdfs/jegus-resume.pdf" class="btn btn-secondary btn-lg" download="jegus-resume.pdf">Download Resume</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 text-center">
-                    <img src="images/jegusnew.png" alt="Albin Jegus S" class="img-fluid rounded-circle shadow-lg" style="max-width: 300px; border: 4px solid var(--primary-color);">
+                <div class="col-lg-4 text-center mt-4 mt-lg-0">
+                    <div class="hero-photo-wrap">
+                        <img src="images/jegusnew.png" alt="Albin Jegus S" class="img-fluid rounded-circle shadow-lg hero-photo"
+                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="hero-photo rounded-circle shadow-lg d-none align-items-center justify-content-center" style="width:300px;height:300px;margin:0 auto;border:4px solid var(--primary-color);background:rgba(212,175,55,0.1);">
+                            <i class="fas fa-user fa-5x" style="color:var(--primary-color);"></i>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -909,60 +1026,117 @@
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script>
-        $(document).ready(function() {
-            $('a.nav-link, a.btn-primary[href^="#"]').on('click', function(event) {
-                if (this.hash !== "") {
+        (function() {
+            // Smooth scroll for in-page links
+            document.querySelectorAll('a[href^="#"]').forEach(function(link) {
+                link.addEventListener('click', function(event) {
+                    const hash = this.getAttribute('href');
+                    if (!hash || hash === '#') return;
+                    const target = document.querySelector(hash);
+                    if (!target) return;
                     event.preventDefault();
-                    $('html, body').animate({
-                        scrollTop: $(this.hash).offset().top - 70
-                    }, 400);
-                }
-            });
-
-            gsap.registerPlugin(ScrollTrigger);
-
-            gsap.utils.toArray(".experience-card").forEach((card) => {
-                gsap.from(card, {
-                    x: -100, opacity: 0, duration: 0.5,
-                    scrollTrigger: { trigger: card, start: "top 98%", toggleActions: "play none none reverse" }
+                    window.scrollTo({
+                        top: target.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
                 });
             });
 
-            gsap.utils.toArray(".education-card").forEach((card) => {
-                gsap.from(card, {
-                    scale: 0.8, opacity: 0, duration: 0.5,
-                    scrollTrigger: { trigger: card, start: "top 98%", toggleActions: "play none none reverse" }
-                });
-            });
-
-            gsap.utils.toArray(".project-card").forEach((card) => {
-                gsap.from(card, {
-                    y: 100, opacity: 0, duration: 0.5,
-                    scrollTrigger: { trigger: card, start: "top 98%", toggleActions: "play none none reverse" }
-                });
-            });
-
-            gsap.utils.toArray(".skills-list li").forEach((skill, index) => {
-                gsap.from(skill, {
-                    y: 100, opacity: 0, duration: 0.3, delay: index * 0.02,
-                    scrollTrigger: { trigger: skill, start: "top 98%", toggleActions: "play none none reverse" }
-                });
-            });
-
+            // Background particles
             const backgroundAnimation = document.querySelector('.background-animation');
             if (backgroundAnimation) {
-                for (let i = 0; i < 30; i++) {
+                for (let i = 0; i < 25; i++) {
                     const span = document.createElement('span');
                     span.style.top = Math.random() * 100 + '%';
                     span.style.left = Math.random() * 100 + '%';
                     backgroundAnimation.appendChild(span);
                 }
             }
-        });
+
+            function initAnimations() {
+                if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+
+                gsap.registerPlugin(ScrollTrigger);
+
+                const animateCards = (selector, fromVars) => {
+                    gsap.utils.toArray(selector).forEach((el) => {
+                        gsap.from(el, {
+                            ...fromVars,
+                            duration: 0.5,
+                            ease: 'power2.out',
+                            immediateRender: false,
+                            scrollTrigger: {
+                                trigger: el,
+                                start: 'top 92%',
+                                once: true,
+                                invalidateOnRefresh: true
+                            }
+                        });
+                    });
+                };
+
+                animateCards('.experience-card', { x: -60, opacity: 0 });
+                animateCards('.education-card', { scale: 0.9, opacity: 0 });
+                animateCards('.project-card', { y: 60, opacity: 0 });
+
+                // Animate skill lists by container (avoids 50+ triggers causing blank first load)
+                gsap.utils.toArray('.skills-list').forEach((list) => {
+                    gsap.from(list.children, {
+                        y: 40,
+                        opacity: 0,
+                        duration: 0.4,
+                        stagger: 0.03,
+                        ease: 'power2.out',
+                        immediateRender: false,
+                        scrollTrigger: {
+                            trigger: list,
+                            start: 'top 90%',
+                            once: true,
+                            invalidateOnRefresh: true
+                        }
+                    });
+                });
+
+                // Hero entrance (always visible on load)
+                gsap.from('.hero-content > *', {
+                    y: 30,
+                    opacity: 0,
+                    duration: 0.6,
+                    stagger: 0.08,
+                    ease: 'power2.out',
+                    delay: 0.1
+                });
+
+                gsap.from('.hero-photo-wrap', {
+                    scale: 0.85,
+                    opacity: 0,
+                    duration: 0.7,
+                    ease: 'power2.out',
+                    delay: 0.3
+                });
+
+                ScrollTrigger.refresh();
+            }
+
+            // Wait for full page load (fonts, images, layout) before ScrollTrigger calc
+            window.addEventListener('load', function() {
+                initAnimations();
+                setTimeout(function() { ScrollTrigger.refresh(); }, 100);
+            });
+
+            window.addEventListener('resize', function() {
+                if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
+            });
+
+            if (document.fonts && document.fonts.ready) {
+                document.fonts.ready.then(function() {
+                    if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
+                });
+            }
+        })();
     </script>
 </body>
 </html>
