@@ -3,461 +3,1093 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Albin Jegus S - AI/ML Solutions Architect Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <title>Albin Jegus S | AI/ML Solutions Architect & Full Stack Developer</title>
+    <meta name="description" content="Portfolio of Albin Jegus S, AI/ML Solutions Architect & Senior Full Stack Developer. Specialized in Generative AI, Industrial IoT, RAG, and SaaS platform development.">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #d4af37;
-            --secondary-color: #1c1c1c;
-            --accent-color: #8b0000;
-            --text-color: #f8f8f8;
-            --bg-color: #0a0a0a;
+            --bg-main: #09090b;
+            --bg-card: rgba(20, 20, 25, 0.6);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(251, 191, 36, 0.25);
+            --text-primary: #f4f4f5;
+            --text-secondary: #a1a1aa;
+            --primary: #f59e0b; /* Amber */
+            --primary-rgb: 245, 158, 11;
+            --primary-glow: rgba(245, 158, 11, 0.15);
+            --accent: #6366f1; /* Indigo */
+            --accent-rgb: 99, 102, 241;
+            --accent-glow: rgba(99, 102, 241, 0.15);
+            --success: #10b981;
+            --danger: #ef4444;
+            --font-main: 'Plus Jakarta Sans', sans-serif;
+            --font-tech: 'Space Grotesk', sans-serif;
+            --font-code: 'Fira Code', monospace;
         }
 
-        body, html {
-            font-family: 'Playfair Display', serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            overflow-x: hidden;
+        /* Typography & Components Dark-only Styles */
+        .navbar-brand,
+        .nav-link,
+        .timeline-role,
+        .project-title,
+        .research-name {
+            color: #f4f4f5 !important;
+            transition: color 0.2s ease;
         }
 
         .navbar {
-            background-color: rgba(28, 28, 28, 0.8);
-            backdrop-filter: blur(10px);
-        }
-
-        .navbar-brand, .nav-link {
-            color: var(--primary-color) !important;
+            background: rgba(9, 9, 11, 0.8) !important;
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border-color);
             transition: all 0.3s ease;
         }
 
-        .nav-link:hover {
-            color: var(--accent-color) !important;
-            transform: scale(1.1);
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary) !important;
         }
 
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-            padding-top: 80px;
+        .stat-num {
+            color: #fff;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, var(--secondary-color), var(--accent-color));
-            opacity: 0.7;
-            z-index: -1;
+        .ambient-glow {
+            opacity: 0.25;
+            transition: opacity 0.3s ease;
         }
 
-        .hero-content { z-index: 1; text-align: left; }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 5rem);
-            margin-bottom: 0.5rem;
-            animation: glowText 2s infinite alternate;
-        }
-
-        .hero .lead {
-            color: var(--primary-color);
-            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        .hero-badge {
-            display: inline-block;
-            background: rgba(212, 175, 55, 0.15);
-            border: 1px solid var(--primary-color);
-            color: var(--primary-color);
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 0.95rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero-summary {
-            font-size: 1.05rem;
-            line-height: 1.8;
-            color: rgba(248, 248, 248, 0.92);
-            margin-bottom: 1.5rem;
-        }
-
-        .hero-summary strong {
-            color: var(--primary-color);
-        }
-
-        .hero-highlights {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero-highlights span {
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(212, 175, 55, 0.4);
-            color: var(--primary-color);
-            padding: 6px 14px;
-            border-radius: 16px;
-            font-size: 0.9rem;
-        }
-
-        .hero-contact {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem 1.5rem;
-            margin-bottom: 1.5rem;
-            font-size: 0.95rem;
-        }
-
-        .hero-contact a {
-            color: var(--text-color);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .hero-contact a:hover { color: var(--primary-color); }
-
-        .hero-contact i {
-            color: var(--primary-color);
-            margin-right: 6px;
-        }
-
-        .hero-photo {
-            max-width: 300px;
-            border: 4px solid var(--primary-color);
-            background: rgba(255, 255, 255, 0.05);
-            object-fit: cover;
-            aspect-ratio: 1;
-        }
-
-        .hero-photo-wrap {
-            position: relative;
-            display: inline-block;
-            opacity: 0;
-            animation: heroFadeIn 0.7s ease 0.3s forwards;
-        }
-
-        .hero-photo-wrap::before {
-            content: '';
-            position: absolute;
-            inset: -8px;
-            border-radius: 50%;
-            border: 2px solid var(--accent-color);
-            opacity: 0.5;
-            animation: rotate 8s linear infinite;
-        }
-
-        @keyframes heroFadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .hero-content > * {
-            opacity: 0;
-            animation: heroFadeIn 0.6s ease forwards;
-        }
-
-        .hero-content > *:nth-child(1) { animation-delay: 0.05s; }
-        .hero-content > *:nth-child(2) { animation-delay: 0.12s; }
-        .hero-content > *:nth-child(3) { animation-delay: 0.19s; }
-        .hero-content > *:nth-child(4) { animation-delay: 0.26s; }
-        .hero-content > *:nth-child(5) { animation-delay: 0.33s; }
-        .hero-content > *:nth-child(6) { animation-delay: 0.40s; }
-        .hero-content > *:nth-child(7) { animation-delay: 0.47s; }
-        .hero-content > *:nth-child(8) { animation-delay: 0.54s; }
-
-        .btn-primary {
-            background-color: var(--primary-color);
-            border-color: var(--primary-color);
-            color: var(--secondary-color);
-            padding: 12px 40px;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-primary::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: all 0.5s;
-        }
-
-        .btn-primary:hover::before { left: 100%; }
-
-        .btn-primary:hover {
-            background-color: var(--accent-color);
-            border-color: var(--accent-color);
-            color: var(--primary-color);
-            transform: scale(1.05);
-        }
-
-        .section-title {
-            color: var(--primary-color);
-            text-align: center;
-            margin-bottom: 3rem;
-            font-size: 3rem;
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            font-family: var(--font-main);
+            overflow-x: hidden;
             position: relative;
         }
 
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 100px;
-            height: 3px;
-            background-color: var(--accent-color);
-            margin: 20px auto 0;
-        }
-
-        .subsection-title {
-            color: var(--primary-color);
-            text-align: center;
-            margin: 2rem 0 1.5rem;
-            font-size: 1.5rem;
-        }
-
-        .project-tech {
-            color: var(--accent-color);
-            font-size: 0.95rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .experience-card, .education-card, .project-card {
-            background-color: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--primary-color);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-            transition: all 0.5s ease;
-            margin-bottom: 2rem;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .experience-card:hover, .education-card:hover, .project-card:hover {
-            transform: translateY(-20px) rotate(2deg);
-            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.3);
-        }
-
-        .experience-card::before, .education-card::before, .project-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: conic-gradient(from 0deg, transparent, var(--primary-color), transparent 30%);
-            animation: rotate 4s linear infinite;
-        }
-
-        .experience-card::after, .education-card::after, .project-card::after {
-            content: '';
-            position: absolute;
-            inset: 3px;
-            background: var(--bg-color);
-        }
-
-        .card-content {
-            position: relative;
-            z-index: 1;
-            padding: 2rem;
-            min-height: 220px;
-        }
-
-        .card-title {
-            color: var(--primary-color);
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-        }
-
-        @keyframes glowText {
-            0% { text-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--primary-color); }
-            100% { text-shadow: 0 0 20px var(--primary-color), 0 0 40px var(--primary-color); }
-        }
-
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        footer {
-            background-color: var(--secondary-color);
-            color: var(--primary-color);
-            padding: 3rem 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        footer::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, var(--primary-color) 10%, transparent 10%);
-            background-size: 20px 20px;
-            opacity: 0.1;
-            animation: moveBackground 20s linear infinite;
-        }
-
-        .social-icon {
-            color: var(--primary-color);
-            font-size: 2rem;
-            margin: 0 15px;
-            transition: all 0.3s ease;
-        }
-
-        .social-icon:hover {
-            color: var(--accent-color);
-            transform: scale(1.2) rotate(15deg);
-        }
-
-        @keyframes moveBackground {
-            0% { background-position: 0 0; }
-            100% { background-position: 400px 400px; }
-        }
-
-        .skills-list {
-            list-style-type: none;
-            padding: 0;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .skills-list li {
-            background-color: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--primary-color);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-            padding: 10px 20px;
-            margin: 10px;
-            border-radius: 20px;
-            position: relative;
-            overflow: hidden;
-            animation: skillsBullet 1s ease-in-out infinite alternate;
-        }
-
-        @keyframes skillsBullet {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(-10px); }
-        }
-
-        .skills-list li::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: conic-gradient(from 0deg, transparent, var(--primary-color), transparent 30%);
-            animation: rotate 4s linear infinite;
-        }
-
-        .skills-list li::after {
-            content: '';
-            position: absolute;
-            inset: 3px;
-            background: var(--bg-color);
-            border-radius: 20px;
-        }
-
-        .skills-list li span {
-            position: relative;
-            z-index: 1;
-            color: var(--primary-color);
-            font-size: 1.1rem;
-        }
-
-        .background-animation {
+        /* Neural Canvas Background */
+        #neural-canvas {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -1;
-            opacity: 0.5;
+            z-index: -2;
             pointer-events: none;
+            opacity: 0.35;
         }
 
-        .background-animation span {
+        /* Ambient Glow Blobs */
+        .ambient-glow {
             position: absolute;
-            width: 20px;
-            height: 20px;
-            background: var(--primary-color);
+            width: 500px;
+            height: 500px;
             border-radius: 50%;
-            box-shadow: 0 0 20px var(--primary-color), 0 0 40px var(--primary-color);
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, rgba(245, 158, 11, 0.03) 50%, transparent 100%);
+            filter: blur(80px);
+            pointer-events: none;
+            z-index: -1;
         }
 
-        .btn-secondary {
-            background-color: var(--accent-color);
-            border-color: var(--accent-color);
-            color: var(--primary-color);
-            padding: 12px 40px;
-            font-size: 1.2rem;
+        /* Navigation */
+        .navbar {
+            background: rgba(9, 9, 11, 0.8) !important;
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border-color);
             transition: all 0.3s ease;
+        }
+
+        .navbar-brand {
+            font-family: var(--font-tech);
+            font-weight: 700;
+            color: var(--text-primary) !important;
+            letter-spacing: -0.5px;
+        }
+
+        .navbar-brand span {
+            color: var(--primary);
+        }
+
+        .nav-link {
+            font-family: var(--font-tech);
+            color: var(--text-secondary) !important;
+            font-size: 0.95rem;
+            margin: 0 0.5rem;
+            transition: all 0.25s ease;
+            position: relative;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary) !important;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: all 0.25s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 80%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            padding-top: 140px;
+            padding-bottom: 80px;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-badge {
+            background: rgba(245, 158, 11, 0.08);
+            border: 1px solid rgba(245, 158, 11, 0.25);
+            color: var(--primary);
+            padding: 8px 18px;
+            border-radius: 9999px;
+            font-family: var(--font-tech);
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .hero h1 {
+            font-family: var(--font-tech);
+            font-size: clamp(2.8rem, 6vw, 4.8rem);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -1px;
+            margin-top: 1rem;
+        }
+
+        .hero-title-gradient {
+            background: linear-gradient(135deg, #fff 30%, var(--primary) 70%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            color: var(--text-secondary);
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-typing {
+            color: var(--primary);
+            font-family: var(--font-code);
+            border-right: 2px solid var(--primary);
+            padding-right: 5px;
+            animation: blink 0.75s step-end infinite;
+        }
+
+        .hero-summary {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            max-width: 680px;
+        }
+
+        .hero-contact-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin: 2rem 0;
+            font-size: 0.95rem;
+        }
+
+        .hero-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .hero-contact-item:hover {
+            color: var(--primary);
+        }
+
+        .hero-contact-item i {
+            color: var(--primary);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2.5rem;
+        }
+
+        .stat-box {
+            border-left: 2px solid var(--primary);
+            padding-left: 1rem;
+        }
+
+        .stat-num {
+            font-family: var(--font-tech);
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1;
+        }
+
+        .stat-lbl {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+
+        /* Profile Photo Container */
+        .profile-photo-container {
+            position: relative;
+            width: 330px;
+            height: 330px;
+            margin: 0 auto;
+        }
+
+        /* Rotating Tech Rings */
+        .tech-ring-1 {
+            position: absolute;
+            inset: -20px;
+            border-radius: 50%;
+            border: 2px dashed var(--primary);
+            opacity: 0.35;
+            animation: techRotateCW 14s linear infinite;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .tech-ring-2 {
+            position: absolute;
+            inset: -32px;
+            border-radius: 50%;
+            border: 2px dotted var(--accent);
+            opacity: 0.25;
+            animation: techRotateCCW 20s linear infinite;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        @keyframes techRotateCW {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes techRotateCCW {
+            from { transform: rotate(360deg); }
+            to { transform: rotate(0deg); }
+        }
+
+        .photo-glow {
+            position: absolute;
+            inset: -15px;
+            border-radius: 24px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            opacity: 0.15;
+            filter: blur(20px);
+            z-index: 1;
+            animation: pulseGlow 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulseGlow {
+            0% { opacity: 0.1; filter: blur(15px); }
+            100% { opacity: 0.22; filter: blur(25px); }
+        }
+
+        .photo-card {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 24px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-card);
+            backdrop-filter: blur(10px);
+            overflow: hidden;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s ease;
+            animation: floatHero 6s ease-in-out infinite;
+        }
+
+        @keyframes floatHero {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(1deg); }
+        }
+
+        .photo-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 0 25px rgba(245, 158, 11, 0.2);
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .photo-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.05) 0%, rgba(99, 102, 241, 0.05) 100%);
+            color: var(--primary);
+        }
+
+        /* Glass Cards with Neon Rotating Borders on Hover */
+        .glass-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
-            margin-left: 20px;
+            z-index: 1;
         }
 
-        .btn-secondary::before {
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, var(--primary), transparent 30%, transparent, var(--accent), transparent 70%);
+            animation: borderRotate 6s linear infinite;
+            z-index: -2;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .glass-card::after {
+            content: '';
+            position: absolute;
+            inset: 1.5px; /* Creates the border width */
+            background: #0d0d11; /* Solid dark color to mask gradient sweep behind text */
+            border-radius: 15px;
+            z-index: -1;
+            transition: background 0.3s ease;
+        }
+
+        /* Ensure all inner content displays above the rotating border background layers */
+        .glass-card > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .glass-card:hover::before {
+            opacity: 1;
+        }
+
+        .glass-card:hover {
+            border-color: transparent;
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45), 0 0 20px rgba(245, 158, 11, 0.12);
+        }
+
+        @keyframes borderRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Visibility Fixes for Theme */
+        .text-glow {
+            text-shadow: 0 0 10px rgba(245, 158, 11, 0.3);
+        }
+
+        /* Buttons */
+        .btn-custom {
+            font-family: var(--font-tech);
+            font-weight: 600;
+            padding: 12px 28px;
+            border-radius: 8px;
+            transition: all 0.25s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-custom-primary {
+            background: var(--primary);
+            color: #000;
+            border: none;
+        }
+
+        .btn-custom-primary:hover {
+            background: #fff;
+            color: #000;
+            box-shadow: 0 0 25px rgba(245, 158, 11, 0.35);
+            transform: translateY(-2px);
+        }
+
+        .btn-custom-outline {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-custom-outline:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-header {
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .section-tag {
+            color: var(--primary);
+            font-family: var(--font-code);
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title {
+            font-family: var(--font-tech);
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        /* Skills Interactive Area */
+        .skills-filter-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 2.5rem;
+            justify-content: center;
+        }
+
+        .filter-tab {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            padding: 8px 18px;
+            border-radius: 9999px;
+            cursor: pointer;
+            font-family: var(--font-tech);
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .filter-tab:hover, .filter-tab.active {
+            background: var(--primary-glow);
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .skill-tag {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-color);
+            border-left: 3px solid rgba(245, 158, 11, 0.4); /* Circuit-like indicator line */
+            color: var(--text-primary);
+            padding: 10px 20px;
+            border-radius: 6px 12px 12px 6px;
+            font-family: var(--font-tech);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .skill-tag:hover {
+            background: rgba(251, 191, 36, 0.06);
+            border-color: var(--primary);
+            border-left-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 8px 20px rgba(245, 158, 11, 0.12);
+        }
+
+        .skill-tag.highlight {
+            border-color: rgba(99, 102, 241, 0.3);
+            border-left: 3px solid var(--accent);
+            background: rgba(99, 102, 241, 0.04);
+            color: #a5b4fc;
+        }
+
+        .skill-tag.highlight:hover {
+            border-color: var(--accent);
+            border-left-color: #a5b4fc;
+            background: rgba(99, 102, 241, 0.08);
+            box-shadow: 0 8px 22px rgba(99, 102, 241, 0.2);
+        }
+
+        /* Experience Timeline */
+        .timeline-container {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline-container::before {
             content: '';
             position: absolute;
             top: 0;
-            left: -100%;
-            width: 100%;
+            bottom: 0;
+            left: 20px;
+            width: 2px;
+            background: linear-gradient(180deg, var(--primary) 0%, var(--accent) 50%, var(--border-color) 100%);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 55px;
+            margin-bottom: 3rem;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 11px;
+            top: 8px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--bg-main);
+            border: 3px solid var(--primary);
+            z-index: 2;
+            box-shadow: 0 0 10px var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover .timeline-dot {
+            background: var(--primary);
+            transform: scale(1.2);
+        }
+
+        .timeline-card {
+            padding: 24px;
+        }
+
+        .timeline-date {
+            font-family: var(--font-code);
+            font-size: 0.85rem;
+            color: var(--primary);
+            margin-bottom: 6px;
+        }
+
+        .timeline-role {
+            font-size: 1.35rem;
+            font-family: var(--font-tech);
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .timeline-company {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+            display: inline-block;
+        }
+
+        .timeline-details {
+            list-style: none;
+            padding-left: 0;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 0;
+        }
+
+        .timeline-details li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+        }
+
+        .timeline-details li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+        }
+
+        /* Interactive AI Playground */
+        .playground-card {
+            padding: 40px;
+            background: rgba(15, 15, 20, 0.75) !important;
+            border: 1px solid rgba(255, 255, 255, 0.05) !important;
+            border-radius: 20px !important;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease !important;
+            transform: none !important;
+        }
+
+        .playground-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: 
+                linear-gradient(to right, var(--primary) 2px, transparent 2px) 0 0,
+                linear-gradient(to bottom, var(--primary) 2px, transparent 2px) 0 0,
+                linear-gradient(to left, var(--primary) 2px, transparent 2px) 100% 0,
+                linear-gradient(to bottom, var(--primary) 2px, transparent 2px) 100% 0,
+                linear-gradient(to right, var(--primary) 2px, transparent 2px) 0 100%,
+                linear-gradient(to top, var(--primary) 2px, transparent 2px) 0 100%,
+                linear-gradient(to left, var(--primary) 2px, transparent 2px) 100% 100%,
+                linear-gradient(to top, var(--primary) 2px, transparent 2px) 100% 100%;
+            background-size: 16px 16px;
+            background-repeat: no-repeat;
+            animation: none !important;
+            z-index: 10;
+            opacity: 0.4;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .playground-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: 
+                radial-gradient(rgba(245, 158, 11, 0.04) 1px, transparent 1px),
+                radial-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+            z-index: -1;
+            opacity: 0.7;
+            pointer-events: none;
+            border-radius: 18px;
+            background-color: transparent !important;
+        }
+
+        .playground-card:hover {
+            border-color: rgba(245, 158, 11, 0.25) !important;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 30px rgba(245, 158, 11, 0.08) !important;
+            transform: none !important;
+        }
+
+        .playground-card:hover::before {
+            opacity: 1 !important;
+        }
+
+        .playground-tabs {
+            display: flex;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 25px;
+        }
+
+        .playground-tab {
+            padding: 12px 24px;
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            font-family: var(--font-tech);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border-bottom: 2px solid transparent;
+        }
+
+        .playground-tab.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+        }
+
+        .playground-screen {
+            background: #06060a;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            font-family: var(--font-code);
+            font-size: 0.85rem;
+            padding: 20px;
+            min-height: 280px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8), 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Scanline CRT overlay for the terminal screen */
+        .playground-screen::before {
+            content: " ";
+            display: block;
+            position: absolute;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            z-index: 5;
+            background-size: 100% 3px, 6px 100%;
+            pointer-events: none;
+            opacity: 0.4;
+        }
+
+        .console-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            font-family: var(--font-tech);
+            letter-spacing: 0.5px;
+            z-index: 6;
+            position: relative;
+        }
+
+        .console-controls span {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-right: 4px;
+        }
+
+        .console-red { background: #ef4444; }
+        .console-yellow { background: #f59e0b; }
+        .console-green { background: #10b981; }
+
+        .console-body {
+            color: #38bdf8; /* Light blue terminal style */
+            height: 120px;
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
+            z-index: 6;
+            position: relative;
+            font-family: var(--font-code);
+            line-height: 1.5;
+        }
+
+        .sensor-graph-container {
+            display: flex;
+            align-items: flex-end;
+            height: 100px;
+            gap: 4px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            z-index: 6;
+            position: relative;
+        }
+
+        .graph-bar {
+            flex: 1;
+            background: linear-gradient(to top, rgba(99, 102, 241, 0.2), var(--accent));
+            height: 10%;
+            transition: height 0.25s cubic-bezier(0.4, 0, 0.2, 1), background 0.25s ease;
+            border-radius: 3px 3px 0 0;
+            box-shadow: 0 0 10px rgba(99, 102, 241, 0.25);
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            transition: all 0.4s ease;
+        }
+
+        .project-card {
             height: 100%;
-            background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: all 0.5s;
+            display: flex;
+            flex-direction: column;
+            padding: 24px;
         }
 
-        .btn-secondary:hover::before { left: 100%; }
-
-        .btn-secondary:hover {
-            background-color: var(--primary-color);
-            border-color: var(--primary-color);
-            color: var(--secondary-color);
-            transform: scale(1.05);
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
         }
 
-        .modal-content {
-            background-color: var(--bg-color) !important;
-            color: var(--text-color);
-            border: 1px solid var(--primary-color);
+        .project-folder {
+            font-size: 2rem;
+            color: var(--primary);
         }
 
-        .hero .btn-secondary { margin-left: 0; }
+        .project-links a {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            margin-left: 10px;
+            transition: color 0.2s ease;
+        }
 
-        @media (max-width: 768px) {
-            .hero-content { text-align: center; }
-            .hero-contact { justify-content: center; }
-            .hero-highlights { justify-content: center; }
-            .d-flex.flex-wrap.gap-2 { justify-content: center; }
+        .project-links a:hover {
+            color: var(--primary);
+        }
+
+        .project-title {
+            font-family: var(--font-tech);
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .project-desc {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 15px;
+        }
+
+        .project-tag {
+            font-family: var(--font-code);
+            font-size: 0.75rem;
+            color: var(--primary);
+            background: rgba(245, 158, 11, 0.05);
+            padding: 4px 8px;
+            border-radius: 4px;
+            border: 1px solid rgba(245, 158, 11, 0.1);
+        }
+
+        /* Research Items */
+        .research-card {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .research-icon {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+
+        .research-name {
+            font-family: var(--font-tech);
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: #fff;
+            margin-bottom: 0;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-color);
+            background: #050507;
+            padding: 60px 0 30px;
+        }
+
+        .footer-socials {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .footer-social-link {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.25s ease;
+            text-decoration: none;
+        }
+
+        .footer-social-link:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            background: var(--primary-glow);
+            transform: translateY(-3px);
+        }
+
+        .footer-copyright {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Utility classes */
+        .text-glow {
+            text-shadow: 0 0 15px rgba(245, 158, 11, 0.4);
+        }
+
+        /* Keyframes */
+        @keyframes blink {
+            from, to { border-color: transparent }
+            50% { border-color: var(--primary); }
+        }
+
+        /* Scroll Top Button */
+        #scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 45px;
+            height: 45px;
+            background: var(--primary);
+            color: #000;
+            border: none;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 99;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            transition: all 0.2s ease;
+        }
+
+        #scroll-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 20px var(--primary);
+        }
+
+        /* Media Queries for Maximum Mobile Responsiveness */
+        @media (max-width: 991px) {
+            .timeline-container::before {
+                left: 10px;
+            }
+            .timeline-dot {
+                left: 1px;
+            }
+            .timeline-item {
+                padding-left: 35px;
+            }
+            .hero {
+                padding-top: 110px;
+                padding-bottom: 50px;
+                text-align: center;
+            }
+            .hero-badge {
+                margin: 0 auto;
+            }
+            .hero-contact-row {
+                justify-content: center;
+                gap: 1rem;
+            }
+            .d-flex.flex-wrap.gap-3 {
+                justify-content: center;
+            }
+            .hero-stats {
+                justify-content: center;
+                gap: 1.5rem;
+            }
+            .profile-photo-container {
+                width: 280px;
+                height: 280px;
+                margin-top: 2rem;
+            }
+            .section-title {
+                font-size: 2.3rem;
+            }
+            section {
+                padding: 60px 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            .hero-stats {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+            .stat-box {
+                flex: 1 1 40%;
+                text-align: center;
+                border-left: none;
+                border-bottom: 2px solid var(--primary);
+                padding-left: 0;
+                padding-bottom: 0.5rem;
+            }
+            .skills-filter-tabs {
+                gap: 6px;
+            }
+            .filter-tab {
+                padding: 6px 12px;
+                font-size: 0.8rem;
+            }
+            .skill-tag {
+                padding: 8px 14px;
+                font-size: 0.85rem;
+            }
+            .playground-card {
+                padding: 15px;
+            }
+            .playground-tab {
+                padding: 8px 12px;
+                font-size: 0.85rem;
+            }
+            .playground-screen {
+                padding: 12px;
+                min-height: 220px;
+            }
+            .console-body {
+                height: 140px;
+                font-size: 0.8rem;
+            }
+            .sensor-graph-container {
+                height: 80px;
+            }
+            .timeline-card {
+                padding: 16px;
+            }
+            .timeline-role {
+                font-size: 1.15rem;
+            }
+            .timeline-company {
+                font-size: 0.9rem;
+            }
+            .timeline-details li {
+                font-size: 0.85rem;
+            }
         }
     </style>
 </head>
-<body>
-    <div class="background-animation"></div>
+<body class="dark-theme">
+    <canvas id="neural-canvas"></canvas>
 
+    <div class="ambient-glow" style="top: 10%; left: -100px;"></div>
+    <div class="ambient-glow" style="top: 40%; right: -200px;"></div>
+    <div class="ambient-glow" style="bottom: 10%; left: 20%;"></div>
+
+    <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#home">Albin Jegus S</a>
+            <a class="navbar-brand" href="#home">Albin<span>Jegus</span>.</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -465,59 +1097,81 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#playground">Playground</a></li>
                     <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
                     <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#pp">Research</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#research">Research</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
+    <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-8">
-                    <div class="hero-content">
-                        <span class="hero-badge"><i class="fas fa-award me-2"></i>10+ Years of Technical Experience</span>
-                        <h1>Albin Jegus S</h1>
-                        <p class="lead">AI/ML Solutions Architect | Full Stack Developer</p>
+                <div class="col-lg-7">
+                    <div class="hero-badge">
+                        <i class="fas fa-microchip"></i> AI/ML Solutions Architect Portfolio
+                    </div>
+                    <h1>
+                        <span class="hero-title-gradient">Albin Jegus S</span>
+                    </h1>
+                    <div class="hero-subtitle">
+                        I specialize in <span class="hero-typing"></span>
+                    </div>
+                    <p class="hero-summary mb-4">
+                        AI/ML Solutions Architect and Senior Full Stack Developer with 10+ years of technical experience. Specialized in Generative AI, Industrial AI, Predictive Maintenance, RAG-based LLM systems, SaaS platform development, and cloud-native application architecture. Proven record of delivering end-to-end AI-powered products across manufacturing, healthcare, education, and enterprise domains
+                    </p>
 
-                        <div class="hero-contact">
-                            <a href="mailto:jegusselvaraj@gmail.com"><i class="fas fa-envelope"></i>jegusselvaraj@gmail.com</a>
-                            <a href="tel:+919750750519"><i class="fas fa-phone"></i>+91 9750750519</a>
-                            <span><i class="fas fa-map-marker-alt"></i>Nagercoil, India</span>
+                    <div class="hero-contact-row">
+                        <a href="javascript:void(0)" onclick="copyToClipboard('jegusselvaraj@gmail.com', 'Email copied!')" class="hero-contact-item" title="Click to copy email">
+                            <i class="fas fa-envelope"></i> <span id="email-text">jegusselvaraj@gmail.com</span>
+                        </a>
+                        <a href="javascript:void(0)" onclick="copyToClipboard('+919750750519', 'Phone number copied!')" class="hero-contact-item" title="Click to copy phone number">
+                            <i class="fas fa-phone"></i> <span id="phone-text">+91 9750750519</span>
+                        </a>
+                        <div class="hero-contact-item">
+                            <i class="fas fa-map-marker-alt"></i> Nagercoil, India
                         </div>
+                    </div>
 
-                        <h5 class="text-primary mb-2">Professional Summary</h5>
-                        <p class="hero-summary">
-                            <strong>AI/ML Solutions Architect</strong> and <strong>Senior Full Stack Developer</strong> with over a decade of experience architecting intelligent, production-ready systems. I design and deliver end-to-end solutions spanning Generative AI, Industrial IoT, and cloud-native SaaS platforms.
-                        </p>
-                        <p class="hero-summary">
-                            Core expertise includes <strong>Generative AI</strong>, <strong>Industrial AI</strong>, <strong>Predictive Maintenance</strong>, <strong>RAG-based LLM systems</strong>, workflow automation (n8n, WhatsApp API), and scalable full-stack development. Proven track record building AI-powered products for manufacturing, healthcare, education, and enterprise clients — from PLC data pipelines and LSTM failure prediction to Llama-2 RAG medical systems and multi-tenant SaaS platforms.
-                        </p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="#playground" class="btn-custom btn-custom-primary">
+                            <i class="fas fa-play"></i> Interactive AI Demo
+                        </a>
+                        <button type="button" class="btn-custom btn-custom-outline" data-bs-toggle="modal" data-bs-target="#resumeModal">
+                            <i class="fas fa-file-pdf"></i> View &amp; Download CV
+                        </button>
+                    </div>
 
-                        <div class="hero-highlights">
-                            <span>Generative AI &amp; LLMs</span>
-                            <span>Industrial IoT &amp; OPC-UA</span>
-                            <span>SaaS &amp; Cloud Architecture</span>
-                            <span>RAG &amp; MLOps</span>
-                            <span>Full Stack Development</span>
+                    <div class="hero-stats">
+                        <div class="stat-box">
+                            <div class="stat-num">10+</div>
+                            <div class="stat-lbl">Years Experience</div>
                         </div>
-
-                        <div class="d-flex flex-wrap gap-2">
-                            <a href="#skills" class="btn btn-primary btn-lg">Explore My Skills</a>
-                            <a href="#experience" class="btn btn-primary btn-lg">View Experience</a>
-                            <a href="pdfs/jegus-resume.pdf" class="btn btn-secondary btn-lg" download="jegus-resume.pdf">Download Resume</a>
+                        <div class="stat-box">
+                            <div class="stat-num">20+</div>
+                            <div class="stat-lbl">Production Products</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-num">100%</div>
+                            <div class="stat-lbl">AI Integration Success</div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 text-center mt-4 mt-lg-0">
-                    <div class="hero-photo-wrap">
-                        <img src="images/jegusnew.png" alt="Albin Jegus S" class="img-fluid rounded-circle shadow-lg hero-photo"
-                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="hero-photo rounded-circle shadow-lg d-none align-items-center justify-content-center" style="width:300px;height:300px;margin:0 auto;border:4px solid var(--primary-color);background:rgba(212,175,55,0.1);">
-                            <i class="fas fa-user fa-5x" style="color:var(--primary-color);"></i>
+                <div class="col-lg-5 mt-5 mt-lg-0">
+                    <div class="profile-photo-container">
+                        <div class="tech-ring-1"></div>
+                        <div class="tech-ring-2"></div>
+                        <div class="photo-glow"></div>
+                        <div class="photo-card">
+                            <!-- Attempt user photo, fall back to stunning tech icon block if missing -->
+                            <img src="images/jegusnew.png" alt="Albin Jegus S" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="photo-placeholder">
+                                <i class="fas fa-laptop-code fa-4x mb-3"></i>
+                                <span class="fw-bold tracking-wide" style="font-family: var(--font-tech)">AI / ML ARCHITECT</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -525,582 +1179,596 @@
         </div>
     </section>
 
+    <!-- Skills Section -->
     <section id="skills" class="py-5">
         <div class="container">
-            <h2 class="section-title">Technical Skills</h2>
+            <div class="section-header text-center">
+                <span class="section-tag">&lt;expertise&gt;</span>
+                <h2 class="section-title">Technical Skill Cloud</h2>
+                <p class="text-secondary mt-2">Filter skills by clicking the categories below</p>
+            </div>
 
-            <h4 class="subsection-title">Programming Languages</h4>
-            <ul class="skills-list">
-                <li><span>Python</span></li>
-                <li><span>C</span></li>
-                <li><span>C++</span></li>
-                <li><span>JavaScript</span></li>
-                <li><span>Embedded C</span></li>
-                <li><span>MATLAB</span></li>
-            </ul>
+            <div class="skills-filter-tabs">
+                <button class="filter-tab active" data-filter="all">All Skills</button>
+                <button class="filter-tab" data-filter="ai-ml">AI &amp; Machine Learning</button>
+                <button class="filter-tab" data-filter="web-mobile">Web &amp; Mobile</button>
+                <button class="filter-tab" data-filter="iot-embedded">IoT &amp; Embedded Systems</button>
+                <button class="filter-tab" data-filter="infra-db">Data &amp; DevOps</button>
+            </div>
 
-            <h4 class="subsection-title">AI / ML Technologies</h4>
-            <ul class="skills-list">
-                <li><span>TensorFlow</span></li>
-                <li><span>PyTorch</span></li>
-                <li><span>Keras</span></li>
-                <li><span>LangChain</span></li>
-                <li><span>YOLO</span></li>
-                <li><span>OpenCV</span></li>
-                <li><span>GAN Models</span></li>
-                <li><span>ResNet</span></li>
-                <li><span>Transformers</span></li>
-                <li><span>BERT</span></li>
-                <li><span>LLM (LLaMA)</span></li>
-                <li><span>NVIDIA CUDA</span></li>
-                <li><span>cuDNN</span></li>
-                <li><span>MLOps</span></li>
-                <li><span>RAG Pipelines</span></li>
-            </ul>
+            <div class="skills-grid" id="skills-container">
+                <!-- AI / ML -->
+                <div class="skill-tag" data-cat="ai-ml"><span>TensorFlow</span></div>
+                <div class="skill-tag" data-cat="ai-ml"><span>PyTorch</span></div>
+                <div class="skill-tag highlight" data-cat="ai-ml"><i class="fas fa-brain"></i><span>LangChain</span></div>
+                <div class="skill-tag" data-cat="ai-ml"><span>LLaMA (LLMs)</span></div>
+                <div class="skill-tag" data-cat="ai-ml"><span>RAG Pipelines</span></div>
+                <div class="skill-tag" data-cat="ai-ml"><span>Transformers &amp; BERT</span></div>
+                <div class="skill-tag" data-cat="ai-ml"><span>YOLO &amp; OpenCV</span></div>
+                <div class="skill-tag" data-cat="ai-ml"><span>GAN Models</span></div>
+                <div class="skill-tag" data-cat="ai-ml"><span>CUDA &amp; cuDNN</span></div>
+                <div class="skill-tag" data-cat="ai-ml"><span>MLOps</span></div>
+                
+                <!-- Web & Mobile -->
+                <div class="skill-tag" data-cat="web-mobile"><span>Django</span></div>
+                <div class="skill-tag" data-cat="web-mobile"><span>FastAPI</span></div>
+                <div class="skill-tag" data-cat="web-mobile"><span>Flask</span></div>
+                <div class="skill-tag highlight" data-cat="web-mobile"><i class="fab fa-react"></i><span>React.js</span></div>
+                <div class="skill-tag" data-cat="web-mobile"><span>React Native</span></div>
+                <div class="skill-tag" data-cat="web-mobile"><span>Flutter</span></div>
+                <div class="skill-tag" data-cat="web-mobile"><span>JavaScript</span></div>
+                <div class="skill-tag" data-cat="web-mobile"><span>Python</span></div>
 
-            <h4 class="subsection-title">Automation &amp; Integration</h4>
-            <ul class="skills-list">
-                <li><span>n8n Workflow Automation</span></li>
-                <li><span>Pabbly Chatflow</span></li>
-                <li><span>Pabbly Connect</span></li>
-                <li><span>WhatsApp Business API</span></li>
-            </ul>
+                <!-- IoT & Embedded -->
+                <div class="skill-tag" data-cat="iot-embedded"><span>OPC-UA Edge</span></div>
+                <div class="skill-tag" data-cat="iot-embedded"><span>PLC Integration</span></div>
+                <div class="skill-tag highlight" data-cat="iot-embedded"><i class="fas fa-network-wired"></i><span>Predictive Maintenance</span></div>
+                <div class="skill-tag" data-cat="iot-embedded"><span>Embedded C</span></div>
+                <div class="skill-tag" data-cat="iot-embedded"><span>C / C++</span></div>
+                <div class="skill-tag" data-cat="iot-embedded"><span>Raspberry Pi</span></div>
+                <div class="skill-tag" data-cat="iot-embedded"><span>ARM &amp; PIC</span></div>
+                <div class="skill-tag" data-cat="iot-embedded"><span>MATLAB</span></div>
 
-            <h4 class="subsection-title">Industrial AI &amp; IoT</h4>
-            <ul class="skills-list">
-                <li><span>Predictive Maintenance</span></li>
-                <li><span>Time-Series Forecasting</span></li>
-                <li><span>OPC-UA</span></li>
-                <li><span>PLC Data Integration</span></li>
-            </ul>
-
-            <h4 class="subsection-title">Web Technologies</h4>
-            <ul class="skills-list">
-                <li><span>Django</span></li>
-                <li><span>Flask</span></li>
-                <li><span>FastAPI</span></li>
-                <li><span>Kafka</span></li>
-                <li><span>RabbitMQ</span></li>
-                <li><span>Artemis MQ</span></li>
-                <li><span>React.js</span></li>
-                <li><span>React Native (Expo)</span></li>
-                <li><span>Flutter</span></li>
-            </ul>
-
-            <h4 class="subsection-title">Cloud &amp; DevOps</h4>
-            <ul class="skills-list">
-                <li><span>Azure Cloud Services</span></li>
-                <li><span>Docker</span></li>
-                <li><span>Jenkins CI/CD</span></li>
-                <li><span>Nginx</span></li>
-                <li><span>DigitalOcean</span></li>
-                <li><span>Bluehost</span></li>
-            </ul>
-
-            <h4 class="subsection-title">Databases</h4>
-            <ul class="skills-list">
-                <li><span>MySQL</span></li>
-                <li><span>MongoDB</span></li>
-                <li><span>InfluxDB 3</span></li>
-                <li><span>Vector Databases</span></li>
-            </ul>
-
-            <h4 class="subsection-title">Data Analysis</h4>
-            <ul class="skills-list">
-                <li><span>Power BI</span></li>
-                <li><span>Pandas</span></li>
-                <li><span>Matplotlib</span></li>
-                <li><span>Seaborn</span></li>
-                <li><span>PySpark</span></li>
-                <li><span>Grafana</span></li>
-            </ul>
-
-            <h4 class="subsection-title">Embedded Systems</h4>
-            <ul class="skills-list">
-                <li><span>8051</span></li>
-                <li><span>PIC</span></li>
-                <li><span>ARM</span></li>
-                <li><span>Raspberry Pi</span></li>
-                <li><span>IoT</span></li>
-            </ul>
+                <!-- Data & DevOps -->
+                <div class="skill-tag" data-cat="infra-db"><span>Apache Kafka</span></div>
+                <div class="skill-tag" data-cat="infra-db"><span>InfluxDB 3</span></div>
+                <div class="skill-tag" data-cat="infra-db"><span>Vector Databases</span></div>
+                <div class="skill-tag" data-cat="infra-db"><span>Docker</span></div>
+                <div class="skill-tag highlight" data-cat="infra-db"><i class="fas fa-cloud"></i><span>Azure Cloud</span></div>
+                <div class="skill-tag" data-cat="infra-db"><span>Jenkins CI/CD</span></div>
+                <div class="skill-tag" data-cat="infra-db"><span>n8n Automation</span></div>
+                <div class="skill-tag" data-cat="infra-db"><span>Power BI &amp; Grafana</span></div>
+                <div class="skill-tag" data-cat="infra-db"><span>MongoDB / MySQL</span></div>
+            </div>
         </div>
     </section>
 
+    <!-- AI Playground Section -->
+    <section id="playground" class="py-5">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-tag">&lt;sandbox&gt;</span>
+                <h2 class="section-title">Interactive AI Simulator</h2>
+                <p class="text-secondary mt-2">Test actual implementations in this mock architecture playground</p>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="glass-card playground-card">
+                        <!-- IIoT Predictive Maintenance Console -->
+                        <div id="iiot-playground" class="playground-content">
+                            <div class="row align-items-center">
+                                <div class="col-md-7">
+                                    <div class="playground-screen">
+                                        <div class="console-header">
+                                            <span>OPC-UA PLC Sensor Stream</span>
+                                            <div class="console-controls">
+                                                <span class="console-red"></span>
+                                                <span class="console-yellow"></span>
+                                                <span class="console-green"></span>
+                                            </div>
+                                        </div>
+                                        <div class="sensor-graph-container" id="sensor-graph">
+                                            <!-- Dynamic elements generated by JS -->
+                                        </div>
+                                        <div class="console-body" id="iiot-console">
+                                            [INFO] Stream initialized. Reading OPC-UA Server nodes...
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-5 mt-4 mt-md-0 ps-lg-4">
+                                    <h4 class="text-white mb-3" style="font-family: var(--font-tech)">Predictive LSTM Anomaly Analysis</h4>
+                                    <p class="text-secondary" style="font-size: 0.95rem;">
+                                        This simulates machine data streaming from an industrial PLC. 
+                                        Click "Inject Machine Fault" to inject high temperature/vibration spikes. The LSTM model checks anomaly thresholds in real-time.
+                                    </p>
+                                    <div class="d-flex gap-2 mt-4">
+                                        <button class="btn-custom btn-custom-primary btn-sm" onclick="triggerAnomaly()">
+                                            <i class="fas fa-bolt"></i> Inject Machine Fault
+                                        </button>
+                                        <button class="btn-custom btn-custom-outline btn-sm" onclick="resetIIoTStream()">
+                                            <i class="fas fa-sync-alt"></i> Reset Stream
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <!-- Experience Section -->
     <section id="experience" class="py-5">
         <div class="container">
-            <h2 class="section-title">Experience</h2>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="experience-card">
-                        <div class="card-content">
-                            <h3 class="card-title">Senior Software Developer</h3>
-                            <p>Kaira Technology | Kovilpatti, India</p>
-                            <p>March 2026 - Present</p>
-                            <button type="button" class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#experienceModal1">More Details</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="experience-card">
-                        <div class="card-content">
-                            <h3 class="card-title">Senior Software Developer</h3>
-                            <p>Zhilon Solutions (Baytech Innovations) | Karungal, India</p>
-                            <p>August 2023 - February 2026</p>
-                            <button type="button" class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#experienceModal2">More Details</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="experience-card">
-                        <div class="card-content">
-                            <h3 class="card-title">Software Engineer A3</h3>
-                            <p>Partnersoft Technology | Chennai, India</p>
-                            <p>October 2022 - July 2023</p>
-                            <button type="button" class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#experienceModal3">More Details</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="experience-card">
-                        <div class="card-content">
-                            <h3 class="card-title">Python Programmer</h3>
-                            <p>Mentor Thesis | Marthandam, India</p>
-                            <p>November 2021 - October 2022</p>
-                            <button type="button" class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#experienceModal4">More Details</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="experience-card">
-                        <div class="card-content">
-                            <h3 class="card-title">Software Technical Trainee</h3>
-                            <p>IBM (Adroit Technologies) | Coimbatore, India</p>
-                            <p>September 2020 - October 2021</p>
-                            <button type="button" class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#experienceModal5">More Details</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="experience-card">
-                        <div class="card-content">
-                            <h3 class="card-title">Embedded Trainer</h3>
-                            <p>Xplore IT Corp | Coimbatore, India</p>
-                            <p>January 2020 - September 2020</p>
-                            <button type="button" class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#experienceModal6">More Details</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="experience-card">
-                        <div class="card-content">
-                            <h3 class="card-title">Assistant Professor</h3>
-                            <p>Park College of Engineering and Technology | Coimbatore, India</p>
-                            <p>April 2014 - December 2019</p>
-                            <button type="button" class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#experienceModal7">More Details</button>
-                        </div>
-                    </div>
-                </div>
+            <div class="section-header text-center">
+                <span class="section-tag">&lt;history&gt;</span>
+                <h2 class="section-title">Career Timeline</h2>
             </div>
-        </div>
 
-        <div class="modal fade" id="experienceModal1" tabindex="-1" aria-labelledby="experienceModalLabel1" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header border-bottom border-primary">
-                        <h5 class="modal-title" id="experienceModalLabel1" style="color: var(--primary-color);">Senior Software Developer — Kaira Technology</h5>
-                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <h6 class="text-primary mb-3">Key Projects:</h6>
-                        <ul class="list-unstyled">
-                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Project Management System (PMS): SaaS platform with attendance, task management, KPI tracking, payroll, announcements, reporting dashboards, leave management, notifications, document management, and role-based access control.</li>
-                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Digital VCard Platform: Dynamic profile management, custom card themes, QR code generation, contact sharing, analytics, payment integration, and subscription management.</li>
-                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>WhatsApp &amp; Workflow Automation: Automation using WhatsApp Business API, Meta Cloud API, n8n, and Pabbly Connect integrated with CRM, Google services, APIs, and databases.</li>
-                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>AI Voice Agent Development: Speech recognition, conversational AI, telephony integrations, and real-time response processing for customer interaction use cases.</li>
+            <div class="timeline-container">
+                <!-- Job 1 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="glass-card timeline-card">
+                        <span class="timeline-date">MARCH 2026 - PRESENT</span>
+                        <h3 class="timeline-role">Senior Software Developer</h3>
+                        <span class="timeline-company text-glow">Kaira Technology | Kovilpatti, India</span>
+                        <ul class="timeline-details">
+                            <li><strong>Project Management System (PMS):</strong> Developed multi-tenant SaaS platform handling attendance, task management, KPI tracking, payroll, announcements, and role-based access.</li>
+                            <li><strong>Digital VCard Platform:</strong> Built Dynamic Profile management system with custom canvas card themes, QR code generators, subscription billing integration.</li>
+                            <li><strong>WhatsApp &amp; Workflow Automation:</strong> Designed automated pipelines using n8n, WhatsApp Business API, and Meta Cloud API to orchestrate database, CRM, and Google integrations.</li>
+                            <li><strong>AI Voice Agent:</strong> Spearheaded research and development of real-time conversational agents combining Speech-to-Text, LLMs, and Telephony integrations.</li>
                         </ul>
                     </div>
-                    <div class="modal-footer border-top border-primary">
-                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
-                    </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="modal fade" id="experienceModal2" tabindex="-1" aria-labelledby="experienceModalLabel2" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header border-bottom border-primary">
-                        <h5 class="modal-title" id="experienceModalLabel2" style="color: var(--primary-color);">Senior Software Developer — Zhilon Solutions</h5>
-                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <h6 class="text-primary mb-3">Key Projects:</h6>
-                        <ul class="list-unstyled">
-                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>AI-Based Industrial Predictive Maintenance Platform: OPC-UA edge data acquisition, Apache Kafka streaming, InfluxDB time-series storage, Grafana dashboards, and LSTM-based failure prediction.</li>
-                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Job Portal Website: Azure deployment with Blob Storage and Azure Active Directory authentication.</li>
-                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>School Management System (SaaS): ERP for enrolment, staff management, academic tracking, and reporting.</li>
-                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>E-commerce Platform: Multi-vendor shopping system with secure payment processing (Django, MySQL).</li>
-                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Flutter Attendance System: Location-aware tracking with live GPS and geofencing.</li>
-                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Face Recognition System: YOLO-based real-time facial recognition for attendance and access control.</li>
-                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Medical Recommendation System: Llama-2-7b-hf with custom RAG logic and MLOps pipeline.</li>
+                <!-- Job 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="glass-card timeline-card">
+                        <span class="timeline-date">AUGUST 2023 - FEBRUARY 2026</span>
+                        <h3 class="timeline-role">Senior Software Developer</h3>
+                        <span class="timeline-company text-glow">Zhilon Solutions (Baytech Innovations) | Karungal, India</span>
+                        <ul class="timeline-details">
+                            <li><strong>AI-Based Industrial Predictive Maintenance:</strong> Developed end-to-end edge data pipeline using OPC-UA, Kafka, InfluxDB, and Grafana to predict machine breakdowns using custom LSTM networks.</li>
+                            <li><strong>Medical Recommendation Engine:</strong> Architected offline RAG queries on Llama-2-7b-hf with full local parameter matching and MLOps deployment pipeline.</li>
+                            <li><strong>YOLO Attendance System:</strong> Built high-accuracy real-time face recognition pipelines integrated with Django admin dashboards.</li>
+                            <li><strong>SaaS ERP &amp; E-commerce:</strong> Engineered robust school ERP and multi-vendor Django-MySQL marketplaces.</li>
                         </ul>
                     </div>
-                    <div class="modal-footer border-top border-primary">
-                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
-                    </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="modal fade" id="experienceModal3" tabindex="-1" aria-labelledby="experienceModalLabel3" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header border-bottom border-primary">
-                        <h5 class="modal-title" id="experienceModalLabel3" style="color: var(--primary-color);">Software Engineer A3 — Partnersoft Technology</h5>
-                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <h6 class="text-primary mb-3">Key Projects:</h6>
-                        <ul class="list-unstyled">
-                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Led end-to-end project development using agile methodologies with architecture and flow diagrams using Gliffy.</li>
-                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Virtual Try-On System (3D): AR-based virtual clothing simulation with real-time image and depth processing.</li>
-                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>OCR &amp; Document Digitization: Custom OCR pipeline with NLP for structured data extraction from scanned documents.</li>
+                <!-- Job 3 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="glass-card timeline-card">
+                        <span class="timeline-date">OCTOBER 2022 - JULY 2023</span>
+                        <h3 class="timeline-role">Software Engineer A3</h3>
+                        <span class="timeline-company text-glow">Partnersoft Technology | Chennai, India</span>
+                        <ul class="timeline-details">
+                            <li><strong>Virtual Try-On System:</strong> Created 3D AR-based virtual clothing simulation algorithms with depth map processing in OpenCV.</li>
+                            <li><strong>Document Digitization:</strong> Developed custom NLP/OCR processing pipeline for structured data parsing from scanned docs.</li>
                         </ul>
                     </div>
-                    <div class="modal-footer border-top border-primary">
-                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
-                    </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="modal fade" id="experienceModal4" tabindex="-1" aria-labelledby="experienceModalLabel4" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header border-bottom border-primary">
-                        <h5 class="modal-title" id="experienceModalLabel4" style="color: var(--primary-color);">Python Programmer — Mentor Thesis</h5>
-                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <h6 class="text-primary mb-3">Key Projects:</h6>
-                        <ul class="list-unstyled">
-                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Breast Cancer Detection: Deep learning model using MRI scans, achieving 98% accuracy for early-stage classification.</li>
-                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Human Action Recognition: Video analytics generating real-time subtitles from action videos.</li>
-                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Serverless ML Deployment: AWS Lambda and API Gateway for scalable, cost-efficient model serving.</li>
-                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>License Plate Detection: Real-time vehicle plate recognition for traffic surveillance.</li>
-                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Face Authentication System: Hierarchical Attentional Model for high-accuracy biometric verification.</li>
+                <!-- Job 4 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="glass-card timeline-card">
+                        <span class="timeline-date">NOVEMBER 2021 - OCTOBER 2022</span>
+                        <h3 class="timeline-role">Python Programmer</h3>
+                        <span class="timeline-company text-glow">Mentor Thesis | Marthandam, India</span>
+                        <ul class="timeline-details">
+                            <li><strong>Breast Cancer Detection:</strong> Built MRI deep classification networks attaining 98% accuracy for early diagnostics.</li>
+                            <li><strong>AWS Serverless Serving:</strong> Created scalable, micro-charging API serving architectures for models using AWS Lambda and API Gateway.</li>
+                            <li><strong>Security &amp; Action Recognition:</strong> Implemented Hierarchical Attentional biometric verification and video action translation models.</li>
                         </ul>
                     </div>
-                    <div class="modal-footer border-top border-primary">
-                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
-                    </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="modal fade" id="experienceModal5" tabindex="-1" aria-labelledby="experienceModalLabel5" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header border-bottom border-primary">
-                        <h5 class="modal-title" id="experienceModalLabel5" style="color: var(--primary-color);">Software Technical Trainee — IBM</h5>
-                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <h6 class="text-primary mb-3">Key Projects:</h6>
-                        <ul class="list-unstyled">
-                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Retail Purchase Prediction: TensorFlow ML models to forecast customer buying behavior and optimize inventory.</li>
-                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Customer Behavior Analysis: Advanced analysis using Pandas, NumPy, and visualization libraries on large-scale datasets.</li>
-                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Corporate Training Delivery: Sessions for professionals and engineering students in AI, ML workflows, and data pipelines.</li>
+                <!-- Older Roles -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="glass-card timeline-card">
+                        <span class="timeline-date">SEPTEMBER 2020 - OCTOBER 2021</span>
+                        <h3 class="timeline-role">Software Technical Trainee</h3>
+                        <span class="timeline-company text-glow">IBM (Adroit Technologies) | Coimbatore, India</span>
+                        <ul class="timeline-details">
+                            <li><strong>Retail Purchase Prediction:</strong> Developed customer behavior forecast frameworks in TensorFlow.</li>
                         </ul>
                     </div>
-                    <div class="modal-footer border-top border-primary">
-                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
-                    </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="modal fade" id="experienceModal6" tabindex="-1" aria-labelledby="experienceModalLabel6" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header border-bottom border-primary">
-                        <h5 class="modal-title" id="experienceModalLabel6" style="color: var(--primary-color);">Embedded Trainer — Xplore IT Corp</h5>
-                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <h6 class="text-primary mb-3">Key Projects:</h6>
-                        <ul class="list-unstyled">
-                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Conducted technical training in embedded systems and real-time microcontroller applications.</li>
-                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>IoT-Based LOOM Monitoring System: Real-time monitoring using PIC microcontroller for textile manufacturing data acquisition.</li>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="glass-card timeline-card">
+                        <span class="timeline-date">2014 - 2020</span>
+                        <h3 class="timeline-role">Academic &amp; Embedded Foundations</h3>
+                        <span class="timeline-company text-glow">Embedded Trainer &amp; Assistant Professor | Park College of Engineering</span>
+                        <ul class="timeline-details">
+                            <li>Taught signal processing, VLSI design, and microcontroller systems.</li>
+                            <li>Built custom PIC/8051 hardware systems, including a real-time IoT loom monitor for textiles.</li>
                         </ul>
-                    </div>
-                    <div class="modal-footer border-top border-primary">
-                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="modal fade" id="experienceModal7" tabindex="-1" aria-labelledby="experienceModalLabel7" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header border-bottom border-primary">
-                        <h5 class="modal-title" id="experienceModalLabel7" style="color: var(--primary-color);">Assistant Professor — Park College</h5>
-                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <h6 class="text-primary mb-3">Key Responsibilities:</h6>
-                        <ul class="list-unstyled">
-                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Taught undergraduate courses in Electronics and Communication Engineering.</li>
-                            <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i>Supervised student projects and research initiatives in embedded systems and signal processing.</li>
-                        </ul>
-                    </div>
-                    <div class="modal-footer border-top border-primary">
-                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="education" class="py-5">
-        <div class="container">
-            <h2 class="section-title">Education</h2>
-            <div class="row justify-content-center">
-                <div class="col-md-5">
-                    <div class="education-card">
-                        <div class="card-content">
-                            <h3 class="card-title">M.E</h3>
-                            <p>PET Engineering College</p>
-                            <p>Communication System</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-5">
-                    <div class="education-card">
-                        <div class="card-content">
-                            <h3 class="card-title">B.E</h3>
-                            <p>VINS Christian College of Engineering</p>
-                            <p>Electronics and Communication Engineering</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
+    <!-- Projects Section -->
     <section id="projects" class="py-5">
         <div class="container">
-            <h2 class="section-title">Key Projects</h2>
-
-            <h4 class="subsection-title">Kaira Technology — Senior Software Developer</h4>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="project-card">
-                        <div class="card-content">
-                            <h3 class="card-title">Project Management System (PMS)</h3>
-                            <p class="project-tech">SaaS Platform</p>
-                            <p>Comprehensive SaaS-based Project Management System featuring employee attendance, task management, KPI tracking, payroll management, announcements, reporting dashboards, leave management, notifications, document management, and role-based access control.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="project-card">
-                        <div class="card-content">
-                            <h3 class="card-title">Digital VCard Platform</h3>
-                            <p class="project-tech">Full Stack, Payment Integration</p>
-                            <p>Digital business card platform with dynamic profile management, custom card themes, QR code generation, contact sharing, analytics, payment integration, and subscription management features.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="project-card">
-                        <div class="card-content">
-                            <h3 class="card-title">WhatsApp &amp; Workflow Automation</h3>
-                            <p class="project-tech">WhatsApp Business API, Meta Cloud API, n8n, Pabbly Connect</p>
-                            <p>Automation workflows integrating CRM systems, Google services, APIs, and databases to streamline business operations and customer engagement.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="project-card">
-                        <div class="card-content">
-                            <h3 class="card-title">AI Voice Agent Development</h3>
-                            <p class="project-tech">Speech Recognition, Conversational AI, Telephony</p>
-                            <p>AI-powered voice assistant solutions with speech recognition, conversational AI, telephony integrations, and real-time response processing for customer interaction use cases.</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="section-header text-center">
+                <span class="section-tag">&lt;portfolio&gt;</span>
+                <h2 class="section-title">Key Projects</h2>
             </div>
 
-            <h4 class="subsection-title">Zhilon Solutions — Senior Software Developer</h4>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="project-card">
-                        <div class="card-content">
-                            <h3 class="card-title">AI-Based Industrial Predictive Maintenance</h3>
-                            <p class="project-tech">OPC-UA, Kafka, InfluxDB, Grafana, LSTM</p>
-                            <p>End-to-end Industrial IoT and AI-driven Predictive Maintenance System for real-time monitoring and failure prediction across PLC-controlled manufacturing machines. OPC-UA edge acquisition, Kafka streaming pipeline, Grafana dashboards, and LSTM models for anomaly detection and maintenance forecasting.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="project-card">
-                        <div class="card-content">
-                            <h3 class="card-title">Job Portal Website</h3>
-                            <p class="project-tech">Azure, Azure Blob Storage, Azure Active Directory</p>
-                            <p>Comprehensive job portal deployed on Azure with integrated Blob Storage for secure document handling and Azure Active Directory for enterprise authentication.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="project-card">
-                        <div class="card-content">
-                            <h3 class="card-title">School Management System (SaaS)</h3>
-                            <p class="project-tech">Django, MySQL, React</p>
-                            <p>Scalable ERP solution for complete school operations including enrolment, staff management, and academic tracking with comprehensive reporting capabilities.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="project-card">
-                        <div class="card-content">
-                            <h3 class="card-title">E-commerce Platform</h3>
-                            <p class="project-tech">Django, MySQL</p>
-                            <p>Full-featured multi-vendor shopping system with secure payment processing and modular architecture for scalability.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="project-card">
-                        <div class="card-content">
-                            <h3 class="card-title">Flutter-based Attendance System</h3>
-                            <p class="project-tech">Flutter, GPS, Geofencing</p>
-                            <p>Location-aware attendance tracking application with live GPS tracking and geofencing capabilities for enhanced security.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="project-card">
-                        <div class="card-content">
-                            <h3 class="card-title">Face Recognition System</h3>
-                            <p class="project-tech">YOLO, PyTorch, Django</p>
-                            <p>YOLO-based real-time facial recognition module for secure attendance and access control with integrated admin dashboard.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="project-card">
-                        <div class="card-content">
-                            <h3 class="card-title">Medical Recommendation System</h3>
-                            <p class="project-tech">Llama-2-7b-hf, RAG, MLOps</p>
-                            <p>Advanced AI model using Llama-2-7b-hf with custom dataset implementation using RAG logic and MLOps pipeline.</p>
-                        </div>
-                    </div>
-                </div>
+            <!-- Interactive Project Filtering Tab Menu -->
+            <div class="skills-filter-tabs mb-5">
+                <button class="project-filter-tab filter-tab active" data-proj-filter="all">All Projects</button>
+                <button class="project-filter-tab filter-tab" data-proj-filter="ai">AI / ML Models</button>
+                <button class="project-filter-tab filter-tab" data-proj-filter="saas">SaaS &amp; Web</button>
+                <button class="project-filter-tab filter-tab" data-proj-filter="iot">IoT &amp; Embedded</button>
             </div>
 
-            <h4 class="subsection-title">Partnersoft Technology — Software Engineer A3</h4>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="project-card">
-                        <div class="card-content">
-                            <h3 class="card-title">Virtual Try-On System (3D)</h3>
-                            <p class="project-tech">AR, Computer Vision, Image &amp; Depth Processing</p>
-                            <p>AR-based virtual clothing simulation platform enabling users to try outfits in real-time using advanced image and depth processing algorithms.</p>
+            <div class="row g-4 projects-grid" id="projects-container">
+                <!-- Project 1 -->
+                <div class="col-md-6 col-lg-4 project-item" data-proj-cat="iot">
+                    <div class="glass-card project-card">
+                        <div class="project-header">
+                            <i class="fas fa-chart-line project-folder"></i>
+                            <div class="project-links"><a href="#"><i class="fab fa-github"></i></a></div>
+                        </div>
+                        <h3 class="project-title">Industrial IIoT Predictive Maintenance</h3>
+                        <p class="project-desc">Real-time edge sensor acquisition platform deploying LSTM deep models to forecast temperature deviations and anomalies in factory PLCs.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">OPC-UA</span>
+                            <span class="project-tag">Kafka</span>
+                            <span class="project-tag">LSTM</span>
+                            <span class="project-tag">InfluxDB</span>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="project-card">
-                        <div class="card-content">
-                            <h3 class="card-title">OCR &amp; Document Digitization</h3>
-                            <p class="project-tech">OCR, NLP, Custom Pipeline</p>
-                            <p>Custom OCR pipeline enhanced with NLP capabilities for extracting structured data from scanned documents with high accuracy.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <h4 class="subsection-title">Mentor Thesis — Python Programmer</h4>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="project-card">
-                        <div class="card-content">
-                            <h3 class="card-title">Breast Cancer Detection</h3>
-                            <p class="project-tech">Deep Learning, MRI, Computer Vision</p>
-                            <p>Deep learning model using MRI scans, achieving 98% accuracy for early-stage breast cancer classification.</p>
+                <!-- Project 2 -->
+                <div class="col-md-6 col-lg-4 project-item" data-proj-cat="ai">
+                    <div class="glass-card project-card">
+                        <div class="project-header">
+                            <i class="fas fa-brain project-folder"></i>
+                            <div class="project-links"><a href="#"><i class="fab fa-github"></i></a></div>
+                        </div>
+                        <h3 class="project-title">Medical RAG &amp; Llama-2 Solution</h3>
+                        <p class="project-desc">A specialized local healthcare recommendation model utilizing RAG architecture to parse clinic manuals and query offline Llama-2 parameters.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Llama-2</span>
+                            <span class="project-tag">LangChain</span>
+                            <span class="project-tag">ChromaDB</span>
+                            <span class="project-tag">Python</span>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="project-card">
-                        <div class="card-content">
-                            <h3 class="card-title">Human Action Recognition</h3>
-                            <p class="project-tech">Computer Vision, Video Analytics</p>
-                            <p>Video analytics system that recognized human activities and generated real-time subtitles using computer vision techniques.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="project-card">
-                        <div class="card-content">
-                            <h3 class="card-title">Serverless ML Deployment</h3>
-                            <p class="project-tech">AWS Lambda, API Gateway</p>
-                            <p>Deployed ML models using AWS Lambda and API Gateway, ensuring scalability and reduced infrastructure costs.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="project-card">
-                        <div class="card-content">
-                            <h3 class="card-title">License Plate Detection</h3>
-                            <p class="project-tech">Deep Learning, OpenCV</p>
-                            <p>Real-time vehicle license plate recognition system optimized for traffic surveillance environments.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="project-card">
-                        <div class="card-content">
-                            <h3 class="card-title">Face Authentication System</h3>
-                            <p class="project-tech">Hierarchical Attentional Model</p>
-                            <p>Biometric authentication system using Hierarchical Attentional Model for high-accuracy face verification.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <h4 class="subsection-title">IBM (Adroit Technologies) — Software Technical Trainee</h4>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="project-card">
-                        <div class="card-content">
-                            <h3 class="card-title">Retail Purchase Prediction</h3>
-                            <p class="project-tech">TensorFlow, Machine Learning</p>
-                            <p>ML models using TensorFlow to forecast customer buying behavior and optimize inventory strategies for retail clients.</p>
+                <!-- Project 3 -->
+                <div class="col-md-6 col-lg-4 project-item" data-proj-cat="saas">
+                    <div class="glass-card project-card">
+                        <div class="project-header">
+                            <i class="fas fa-tasks project-folder"></i>
+                            <div class="project-links"><a href="#"><i class="fab fa-github"></i></a></div>
+                        </div>
+                        <h3 class="project-title">SaaS PMS Platform</h3>
+                        <p class="project-desc">Full-scale Enterprise Project Management SaaS with automated payroll calculations, live timesheets, and permission grids.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Django</span>
+                            <span class="project-tag">React.js</span>
+                            <span class="project-tag">MySQL</span>
+                            <span class="project-tag">Role-RBAC</span>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="project-card">
-                        <div class="card-content">
-                            <h3 class="card-title">Customer Behavior Analysis</h3>
-                            <p class="project-tech">Pandas, NumPy, Data Visualization</p>
-                            <p>Advanced data analysis using Pandas, NumPy, and visualization libraries to uncover actionable trends in large-scale customer datasets.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <h4 class="subsection-title">Xplore IT Corp — Embedded Trainer</h4>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="project-card">
-                        <div class="card-content">
-                            <h3 class="card-title">IoT-Based LOOM Monitoring System</h3>
-                            <p class="project-tech">PIC Microcontroller, IoT</p>
-                            <p>Real-time monitoring solution using PIC microcontroller for data acquisition and analytics in textile manufacturing environments.</p>
+                <!-- Project 4 -->
+                <div class="col-md-6 col-lg-4 project-item" data-proj-cat="ai">
+                    <div class="glass-card project-card">
+                        <div class="project-header">
+                            <i class="fas fa-robot project-folder"></i>
+                            <div class="project-links"><a href="#"><i class="fab fa-github"></i></a></div>
+                        </div>
+                        <h3 class="project-title">AI Voice Agent Pipeline</h3>
+                        <p class="project-desc">Real-time telephonic support solution streaming customer audio through transcription, local LLM routing, and text-to-speech APIs.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">FastAPI</span>
+                            <span class="project-tag">SpeechToText</span>
+                            <span class="project-tag">Telephony</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="col-md-6 col-lg-4 project-item" data-proj-cat="ai">
+                    <div class="glass-card project-card">
+                        <div class="project-header">
+                            <i class="fas fa-shield-alt project-folder"></i>
+                            <div class="project-links"><a href="#"><i class="fab fa-github"></i></a></div>
+                        </div>
+                        <h3 class="project-title">YOLO Live Face Recognition</h3>
+                        <p class="project-desc">High-speed camera attendance validator utilizing customized YOLO architectures to track and mark staff logins under 150ms.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">YOLOv8</span>
+                            <span class="project-tag">PyTorch</span>
+                            <span class="project-tag">OpenCV</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="col-md-6 col-lg-4 project-item" data-proj-cat="iot">
+                    <div class="glass-card project-card">
+                        <div class="project-header">
+                            <i class="fas fa-tshirt project-folder"></i>
+                            <div class="project-links"><a href="#"><i class="fab fa-github"></i></a></div>
+                        </div>
+                        <h3 class="project-title">3D Virtual AR Try-On</h3>
+                        <p class="project-desc">Interactive virtual trial-room software simulating 3D meshes over live body structures using depth mapping models.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Computer Vision</span>
+                            <span class="project-tag">AR</span>
+                            <span class="project-tag">Depth Mapping</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 7 -->
+                <div class="col-md-6 col-lg-4 project-item" data-proj-cat="saas">
+                    <div class="glass-card project-card">
+                        <div class="project-header">
+                            <i class="fas fa-id-card project-folder"></i>
+                            <div class="project-links"><a href="#"><i class="fab fa-github"></i></a></div>
+                        </div>
+                        <h3 class="project-title">Digital VCard Platform</h3>
+                        <p class="project-desc">Dynamic profile card SaaS system with theme customizations, automatic contact integrations, and subscription dashboard models.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Django</span>
+                            <span class="project-tag">QR Code</span>
+                            <span class="project-tag">Stripe</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 8 -->
+                <div class="col-md-6 col-lg-4 project-item" data-proj-cat="saas">
+                    <div class="glass-card project-card">
+                        <div class="project-header">
+                            <i class="fab fa-whatsapp project-folder"></i>
+                            <div class="project-links"><a href="#"><i class="fab fa-github"></i></a></div>
+                        </div>
+                        <h3 class="project-title">WhatsApp CRM Automation</h3>
+                        <p class="project-desc">Meta Cloud API and n8n pipelines integrated with CRM backends, orchestrating customer alerts, announcements, and database updates.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">WhatsApp API</span>
+                            <span class="project-tag">n8n</span>
+                            <span class="project-tag">Pabbly</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 9 -->
+                <div class="col-md-6 col-lg-4 project-item" data-proj-cat="saas">
+                    <div class="glass-card project-card">
+                        <div class="project-header">
+                            <i class="fas fa-briefcase project-folder"></i>
+                            <div class="project-links"><a href="#"><i class="fab fa-github"></i></a></div>
+                        </div>
+                        <h3 class="project-title">Azure Job Portal</h3>
+                        <p class="project-desc">Enterprise job recruitment platform deployed with secure Blob Storage file handling and Azure Active Directory sign-ons.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Azure AD</span>
+                            <span class="project-tag">Blob Storage</span>
+                            <span class="project-tag">Django</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 10 -->
+                <div class="col-md-6 col-lg-4 project-item" data-proj-cat="saas">
+                    <div class="glass-card project-card">
+                        <div class="project-header">
+                            <i class="fas fa-school project-folder"></i>
+                            <div class="project-links"><a href="#"><i class="fab fa-github"></i></a></div>
+                        </div>
+                        <h3 class="project-title">SaaS School ERP System</h3>
+                        <p class="project-desc">A complete school administrator ERP managing academic tracking, staff records, payroll, and grading sheets.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">React.js</span>
+                            <span class="project-tag">Django</span>
+                            <span class="project-tag">MySQL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 11 -->
+                <div class="col-md-6 col-lg-4 project-item" data-proj-cat="saas">
+                    <div class="glass-card project-card">
+                        <div class="project-header">
+                            <i class="fas fa-shopping-cart project-folder"></i>
+                            <div class="project-links"><a href="#"><i class="fab fa-github"></i></a></div>
+                        </div>
+                        <h3 class="project-title">Multi-Vendor E-commerce</h3>
+                        <p class="project-desc">Fully featured multi-tenant marketplace platform with vendor control panels and secure checkout gateway connections.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Django</span>
+                            <span class="project-tag">MySQL</span>
+                            <span class="project-tag">Payments</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 12 -->
+                <div class="col-md-6 col-lg-4 project-item" data-proj-cat="saas">
+                    <div class="glass-card project-card">
+                        <div class="project-header">
+                            <i class="fas fa-mobile-alt project-folder"></i>
+                            <div class="project-links"><a href="#"><i class="fab fa-github"></i></a></div>
+                        </div>
+                        <h3 class="project-title">Geofenced Flutter Attendance</h3>
+                        <p class="project-desc">Location-aware tracking application using live mobile GPS validation and geofencing to register remote personnel logins.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Flutter</span>
+                            <span class="project-tag">GPS Geofence</span>
+                            <span class="project-tag">API Integration</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 13 -->
+                <div class="col-md-6 col-lg-4 project-item" data-proj-cat="ai">
+                    <div class="glass-card project-card">
+                        <div class="project-header">
+                            <i class="fas fa-file-alt project-folder"></i>
+                            <div class="project-links"><a href="#"><i class="fab fa-github"></i></a></div>
+                        </div>
+                        <h3 class="project-title">NLP OCR Document Digitizer</h3>
+                        <p class="project-desc">High-precision document parsing engine utilizing specialized OCR and tokenization layouts to structure scanned logs.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">OCR</span>
+                            <span class="project-tag">NLP</span>
+                            <span class="project-tag">Python</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 14 -->
+                <div class="col-md-6 col-lg-4 project-item" data-proj-cat="ai">
+                    <div class="glass-card project-card">
+                        <div class="project-header">
+                            <i class="fas fa-microscope project-folder"></i>
+                            <div class="project-links"><a href="#"><i class="fab fa-github"></i></a></div>
+                        </div>
+                        <h3 class="project-title">MRI Breast Cancer Classifier</h3>
+                        <p class="project-desc">Early-stage breast cancer classification model analyzing medical MRI scans, achieving 98% prediction accuracy.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Deep Learning</span>
+                            <span class="project-tag">MRI scans</span>
+                            <span class="project-tag">PyTorch</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 15 -->
+                <div class="col-md-6 col-lg-4 project-item" data-proj-cat="ai">
+                    <div class="glass-card project-card">
+                        <div class="project-header">
+                            <i class="fas fa-video project-folder"></i>
+                            <div class="project-links"><a href="#"><i class="fab fa-github"></i></a></div>
+                        </div>
+                        <h3 class="project-title">Human Action Video Subtitler</h3>
+                        <p class="project-desc">Intelligent real-time computer vision workflow recognizing activities inside video frames and generating live action subtitles.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Video Analytics</span>
+                            <span class="project-tag">OpenCV</span>
+                            <span class="project-tag">PyTorch</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 16 -->
+                <div class="col-md-6 col-lg-4 project-item" data-proj-cat="saas">
+                    <div class="glass-card project-card">
+                        <div class="project-header">
+                            <i class="fas fa-cloud-upload-alt project-folder"></i>
+                            <div class="project-links"><a href="#"><i class="fab fa-github"></i></a></div>
+                        </div>
+                        <h3 class="project-title">AWS Serverless Model Serving</h3>
+                        <p class="project-desc">Cost-efficient cloud hosting template for machine learning inference using AWS Lambda and API Gateway wrappers.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">AWS Lambda</span>
+                            <span class="project-tag">API Gateway</span>
+                            <span class="project-tag">Serverless</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 17 -->
+                <div class="col-md-6 col-lg-4 project-item" data-proj-cat="iot">
+                    <div class="glass-card project-card">
+                        <div class="project-header">
+                            <i class="fas fa-car project-folder"></i>
+                            <div class="project-links"><a href="#"><i class="fab fa-github"></i></a></div>
+                        </div>
+                        <h3 class="project-title">ANPR License Plate Recognizer</h3>
+                        <p class="project-desc">Real-time vehicle license plate detection and character segmentation optimized for traffic monitoring feeds.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">OpenCV</span>
+                            <span class="project-tag">LPR</span>
+                            <span class="project-tag">Deep Learning</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 18 -->
+                <div class="col-md-6 col-lg-4 project-item" data-proj-cat="ai">
+                    <div class="glass-card project-card">
+                        <div class="project-header">
+                            <i class="fas fa-user-shield project-folder"></i>
+                            <div class="project-links"><a href="#"><i class="fab fa-github"></i></a></div>
+                        </div>
+                        <h3 class="project-title">Attentional Biometric Validator</h3>
+                        <p class="project-desc">Biometric face validation engine using Attentional Neural Networks for high-fidelity credential matching.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Attention Models</span>
+                            <span class="project-tag">Biometrics</span>
+                            <span class="project-tag">PyTorch</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 19 -->
+                <div class="col-md-6 col-lg-4 project-item" data-proj-cat="ai">
+                    <div class="glass-card project-card">
+                        <div class="project-header">
+                            <i class="fas fa-cash-register project-folder"></i>
+                            <div class="project-links"><a href="#"><i class="fab fa-github"></i></a></div>
+                        </div>
+                        <h3 class="project-title">Retail Purchase Forecaster</h3>
+                        <p class="project-desc">TensorFlow predictive algorithms mapping customer purchase sequences to optimize warehouse stocking ratios.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">TensorFlow</span>
+                            <span class="project-tag">Retail Analytics</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 20 -->
+                <div class="col-md-6 col-lg-4 project-item" data-proj-cat="saas">
+                    <div class="glass-card project-card">
+                        <div class="project-header">
+                            <i class="fas fa-chart-pie project-folder"></i>
+                            <div class="project-links"><a href="#"><i class="fab fa-github"></i></a></div>
+                        </div>
+                        <h3 class="project-title">Customer Trend Analytics</h3>
+                        <p class="project-desc">Large scale analytical dashboards parsing consumer transaction files to reveal growth indicators.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Pandas</span>
+                            <span class="project-tag">Matplotlib</span>
+                            <span class="project-tag">NumPy</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 21 -->
+                <div class="col-md-6 col-lg-4 project-item" data-proj-cat="iot">
+                    <div class="glass-card project-card">
+                        <div class="project-header">
+                            <i class="fas fa-cogs project-folder"></i>
+                            <div class="project-links"><a href="#"><i class="fab fa-github"></i></a></div>
+                        </div>
+                        <h3 class="project-title">IoT Textile Loom Monitor</h3>
+                        <p class="project-desc">Embedded PIC controller module measuring loom status variables to compute manufacturing throughput rates.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">PIC Controller</span>
+                            <span class="project-tag">IoT Gateway</span>
+                            <span class="project-tag">Embedded C</span>
                         </div>
                     </div>
                 </div>
@@ -1108,76 +1776,449 @@
         </div>
     </section>
 
-    <section id="pp" class="py-5">
+    <!-- Research Section -->
+    <section id="research" class="py-5">
         <div class="container">
-            <h2 class="section-title">Research &amp; Innovations</h2>
-            <h4 class="subsection-title">Advanced AI Models</h4>
-            <ul class="skills-list">
-                <li><span>Capsule Triple GAN</span></li>
-                <li><span>Hierarchical Attention NN</span></li>
-                <li><span>Tree CNN</span></li>
-                <li><span>DeTraC Deep CNN</span></li>
-                <li><span>Capsule Super Resolution GAN</span></li>
-                <li><span>Automatic Graph Neural Networks</span></li>
-                <li><span>Enhanced Capsule GAN</span></li>
-                <li><span>Recalling Enhanced RNN</span></li>
-            </ul>
-            <h4 class="subsection-title">Optimization Algorithms</h4>
-            <ul class="skills-list">
-                <li><span>Rat Swarm Optimization</span></li>
-                <li><span>Red Fox Algorithm</span></li>
-                <li><span>Nomadic People Optimizer</span></li>
-                <li><span>Tunicate Swarm Algorithm</span></li>
-            </ul>
+            <div class="section-header text-center">
+                <span class="section-tag">&lt;innovations&gt;</span>
+                <h2 class="section-title">Research &amp; AI Algorithms</h2>
+                <p class="text-secondary mt-2">Specialized architectures and optimization models implemented in production and academic environments</p>
+            </div>
+
+            <h4 class="text-white mb-4" style="font-family: var(--font-tech)">Advanced Neural Network Implementations</h4>
+            <div class="row g-3 mb-5">
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="glass-card research-card">
+                        <i class="fas fa-network-wired research-icon"></i>
+                        <p class="research-name">Capsule Triple GAN</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="glass-card research-card">
+                        <i class="fas fa-brain research-icon"></i>
+                        <p class="research-name">Hierarchical Attention NN</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="glass-card research-card">
+                        <i class="fas fa-tree research-icon"></i>
+                        <p class="research-name">Tree CNN</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="glass-card research-card">
+                        <i class="fas fa-project-diagram research-icon"></i>
+                        <p class="research-name">Graph Neural Networks</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="glass-card research-card">
+                        <i class="fas fa-chart-bar research-icon"></i>
+                        <p class="research-name">DeTraC Deep CNN</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="glass-card research-card">
+                        <i class="fas fa-sliders-h research-icon"></i>
+                        <p class="research-name">Capsule Super Resolution</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="glass-card research-card">
+                        <i class="fas fa-sync research-icon"></i>
+                        <p class="research-name">Recalling Enhanced RNN</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="glass-card research-card">
+                        <i class="fas fa-circle-notch research-icon"></i>
+                        <p class="research-name">Enhanced Capsule GAN</p>
+                    </div>
+                </div>
+            </div>
+
+            <h4 class="text-white mb-4" style="font-family: var(--font-tech)">Optimization &amp; Swarm Algorithms</h4>
+            <div class="row g-3">
+                <div class="col-6 col-md-3">
+                    <div class="glass-card research-card">
+                        <i class="fas fa-paw research-icon"></i>
+                        <p class="research-name">Rat Swarm Optimization</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="glass-card research-card">
+                        <i class="fas fa-feather-alt research-icon"></i>
+                        <p class="research-name">Red Fox Algorithm</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="glass-card research-card">
+                        <i class="fas fa-users research-icon"></i>
+                        <p class="research-name">Nomadic People Optimizer</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="glass-card research-card">
+                        <i class="fas fa-fish research-icon"></i>
+                        <p class="research-name">Tunicate Swarm Algorithm</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <footer class="text-center">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <h5>Contact</h5>
-                    <p>jegusselvaraj@gmail.com</p>
-                    <p>+91 9750750519</p>
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-md-4 text-md-start mb-4 mb-md-0">
+                    <a class="navbar-brand fs-4" href="#home">Albin<span>Jegus</span>.</a>
+                    <p class="text-secondary mt-2 mb-0" style="font-size: 0.9rem;">Building high-performance production AI systems &amp; web software.</p>
                 </div>
-                <div class="col-md-4">
-                    <h5>Location</h5>
-                    <p>Nagercoil, 629177, India</p>
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <div class="footer-socials">
+                        <a href="mailto:jegusselvaraj@gmail.com" class="footer-social-link" title="Email Albin"><i class="fas fa-envelope"></i></a>
+                        <a href="https://www.linkedin.com/in/albin-jegus-03994964" target="_blank" rel="noopener noreferrer" class="footer-social-link" title="LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/Albinjegus10" target="_blank" rel="noopener noreferrer" class="footer-social-link" title="GitHub Profile"><i class="fab fa-github"></i></a>
+                        <a href="tel:+919750750519" class="footer-social-link" title="Call Albin"><i class="fas fa-phone"></i></a>
+                    </div>
                 </div>
-                <div class="col-md-4">
-                    <h5>Follow Me</h5>
-                    <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <div class="col-md-4 text-md-end footer-copyright">
+                    <p class="mb-0">&copy; 2026 Albin Jegus S. All rights reserved.</p>
+                    <p class="text-secondary mb-0 mt-1" style="font-size: 0.8rem;">Nagercoil, TN, India 629177</p>
                 </div>
             </div>
-            <hr>
-            <p>&copy; 2026 Albin Jegus S. All rights reserved.</p>
         </div>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <!-- Resume Modal -->
+    <div class="modal fade" id="resumeModal" tabindex="-1" aria-labelledby="resumeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content" style="background: var(--bg-main); border: 1px solid var(--primary);">
+                <div class="modal-header border-bottom border-secondary">
+                    <h5 class="modal-title text-white" id="resumeModalLabel"><i class="fas fa-file-pdf text-primary me-2"></i>Albin Jegus S - Resume Preview</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-0" style="height: 75vh;">
+                    <iframe src="pdfs/jegus-resume.pdf" width="100%" height="100%" style="border: none;"></iframe>
+                </div>
+                <div class="modal-footer border-top border-secondary">
+                    <a href="pdfs/jegus-resume.pdf" class="btn btn-warning text-dark fw-bold" download="Albin_Jegus_Resume.pdf">
+                        <i class="fas fa-download me-1"></i> Download PDF
+                    </a>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scroll Top Button -->
+    <button id="scroll-top" title="Go to top"><i class="fas fa-arrow-up"></i></button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
     <script>
-        document.querySelectorAll('a[href^="#"]').forEach(function(link) {
-            link.addEventListener('click', function(event) {
-                const hash = this.getAttribute('href');
-                if (!hash || hash === '#') return;
-                const target = document.querySelector(hash);
-                if (!target) return;
-                event.preventDefault();
-                window.scrollTo({ top: target.offsetTop - 70, behavior: 'smooth' });
+        /* Neural Canvas particle backdrop */
+        const canvas = document.getElementById('neural-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        let mouse = { x: null, y: null };
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.4;
+                this.vy = (Math.random() - 0.5) * 0.4;
+                this.radius = Math.random() * 2 + 1;
+            }
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+                
+                // Mouse pull
+                if (mouse.x && mouse.y) {
+                    const dx = mouse.x - this.x;
+                    const dy = mouse.y - this.y;
+                    const dist = Math.sqrt(dx*dx + dy*dy);
+                    if (dist < 120) {
+                        this.x += dx * 0.02;
+                        this.y += dy * 0.02;
+                    }
+                }
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(245, 158, 11, 0.4)';
+                ctx.fill();
+            }
+        }
+
+        function initParticles() {
+            particles = [];
+            const count = Math.min(65, Math.floor((canvas.width * canvas.height) / 18000));
+            for (let i = 0; i < count; i++) {
+                particles.push(new Particle());
+            }
+        }
+        initParticles();
+        window.addEventListener('resize', initParticles);
+
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
+        });
+        window.addEventListener('mouseleave', () => {
+            mouse.x = null;
+            mouse.y = null;
+        });
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+
+            // Connect lines
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const dist = Math.sqrt(dx*dx + dy*dy);
+                    if (dist < 110) {
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        const alpha = (1 - (dist / 110)) * 0.12;
+                        ctx.strokeStyle = `rgba(99, 102, 241, ${alpha})`;
+                        ctx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(animateParticles);
+        }
+        animateParticles();
+
+        /* Typewriter Effect */
+        const words = ["AI/ML Solutions Architecture", "Full Stack Development", "Industrial Predictive Systems", "Generative AI Engineering"];
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typingSpan = document.querySelector('.hero-typing');
+
+        function typeEffect() {
+            const currentWord = words[wordIndex];
+            if (isDeleting) {
+                typingSpan.textContent = currentWord.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingSpan.textContent = currentWord.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            let typeSpeed = isDeleting ? 40 : 80;
+            if (!isDeleting && charIndex === currentWord.length) {
+                typeSpeed = 1600; // Pause at end of word
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                wordIndex = (wordIndex + 1) % words.length;
+                typeSpeed = 400; // Pause before typing new word
+            }
+            setTimeout(typeEffect, typeSpeed);
+        }
+        if (typingSpan) typeEffect();
+
+        /* Skills Interactive Highlighting */
+        const filterTabs = document.querySelectorAll('.filter-tab');
+        const skillTags = document.querySelectorAll('.skill-tag');
+
+        filterTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                filterTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                const filterValue = tab.getAttribute('data-filter');
+                
+                skillTags.forEach(tag => {
+                    const cat = tag.getAttribute('data-cat');
+                    if (filterValue === 'all' || cat === filterValue) {
+                        tag.style.display = 'flex';
+                        tag.style.opacity = '1';
+                        tag.style.transform = 'scale(1)';
+                    } else {
+                        tag.style.opacity = '0';
+                        tag.style.transform = 'scale(0.8)';
+                        setTimeout(() => {
+                            if (tab.getAttribute('data-filter') !== 'all' && cat !== filterValue) {
+                                tag.style.display = 'none';
+                            }
+                        }, 200);
+                    }
+                });
             });
         });
 
-        const backgroundAnimation = document.querySelector('.background-animation');
-        if (backgroundAnimation) {
-            for (let i = 0; i < 25; i++) {
-                const span = document.createElement('span');
-                span.style.top = Math.random() * 100 + '%';
-                span.style.left = Math.random() * 100 + '%';
-                backgroundAnimation.appendChild(span);
-            }
+        /* AI Playground Simulator */
+        let iiotInterval;
+        let sensorData = Array(25).fill(40); // Baseline temp data
+        let sensorGraph = document.getElementById('sensor-graph');
+        let iiotConsole = document.getElementById('iiot-console');
+
+        // Initialize sensor bar elements
+        function initSensorGraph() {
+            sensorGraph.innerHTML = '';
+            sensorData.forEach((val, idx) => {
+                const bar = document.createElement('div');
+                bar.className = 'graph-bar';
+                bar.style.height = val + '%';
+                sensorGraph.appendChild(bar);
+            });
         }
+        initSensorGraph();
+
+        function startIIoTStream() {
+            clearInterval(iiotInterval);
+            iiotInterval = setInterval(() => {
+                // Generate normal sensor fluctuation
+                sensorData.shift();
+                let lastVal = sensorData[sensorData.length - 1];
+                let newVal = Math.min(Math.max(lastVal + (Math.random() - 0.5) * 8, 30), 65);
+                sensorData.push(newVal);
+
+                // Update UI bars
+                const bars = sensorGraph.querySelectorAll('.graph-bar');
+                sensorData.forEach((val, idx) => {
+                    if (bars[idx]) {
+                        bars[idx].style.height = val + '%';
+                        bars[idx].style.background = val > 75 ? 'var(--danger)' : (val > 55 ? 'var(--primary)' : 'var(--accent)');
+                    }
+                });
+
+                // Console messages
+                if (Math.random() > 0.8) {
+                    iiotConsole.innerHTML += `<br>[OPC-UA] Node ns=2;s=Temperature_Sensor_1: ${newVal.toFixed(2)} °C | Status: OK`;
+                    iiotConsole.scrollTop = iiotConsole.scrollHeight;
+                }
+            }, 350);
+        }
+        startIIoTStream();
+
+        function triggerAnomaly() {
+            iiotConsole.innerHTML += `<br><span style="color: var(--danger)">[WARNING] Anomaly injection command received. Setting PLC Speed Override to 120Hz...</span>`;
+            
+            // Spike the last 8 values in data
+            setTimeout(() => {
+                sensorData = sensorData.map(() => Math.floor(Math.random() * 20) + 78);
+                const bars = sensorGraph.querySelectorAll('.graph-bar');
+                sensorData.forEach((val, idx) => {
+                    if (bars[idx]) {
+                        bars[idx].style.height = val + '%';
+                        bars[idx].style.background = 'var(--danger)';
+                    }
+                });
+
+                iiotConsole.innerHTML += `<br><span style="color: var(--danger)">[ALERT] Temperature high limit breached! Detected: ${sensorData[24].toFixed(2)} °C.</span>`;
+                iiotConsole.innerHTML += `<br><span style="color: #fff; background: var(--danger); padding: 2px 5px; border-radius: 4px;">[LSTM CLASSIFICATION] Bearing breakdown imminent. Confidence: 99.4%. Target: Maintenance action in 1.4 hours.</span>`;
+                iiotConsole.scrollTop = iiotConsole.scrollHeight;
+            }, 500);
+        }
+
+        function resetIIoTStream() {
+            sensorData = Array(25).fill(40);
+            initSensorGraph();
+            iiotConsole.innerHTML = `[INFO] Sensor stream reset. OPC-UA server state re-calibrated.`;
+            startIIoTStream();
+        }
+
+
+
+        /* Copy to Clipboard with Visual Feedback */
+        function copyToClipboard(text, successMessage) {
+            navigator.clipboard.writeText(text).then(() => {
+                // Create a temporary toast alert
+                const toast = document.createElement('div');
+                toast.style.position = 'fixed';
+                toast.style.bottom = '20px';
+                toast.style.left = '50%';
+                toast.style.transform = 'translateX(-50%)';
+                toast.style.background = 'var(--primary)';
+                toast.style.color = '#000';
+                toast.style.padding = '10px 20px';
+                toast.style.borderRadius = '8px';
+                toast.style.fontFamily = 'var(--font-tech)';
+                toast.style.fontWeight = 'bold';
+                toast.style.zIndex = '9999';
+                toast.style.boxShadow = '0 0 20px rgba(245, 158, 11, 0.4)';
+                toast.innerHTML = `<i class="fas fa-check-circle me-2"></i> ${successMessage}`;
+                
+                document.body.appendChild(toast);
+                setTimeout(() => {
+                    toast.style.opacity = '0';
+                    toast.style.transition = 'opacity 0.5s ease';
+                    setTimeout(() => toast.remove(), 500);
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        }
+
+        /* Projects Interactive Filtering */
+        const projFilters = document.querySelectorAll('[data-proj-filter]');
+        const projItems = document.querySelectorAll('.project-item');
+
+        projFilters.forEach(tab => {
+            tab.addEventListener('click', () => {
+                projFilters.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                const filterValue = tab.getAttribute('data-proj-filter');
+                
+                projItems.forEach(item => {
+                    const cat = item.getAttribute('data-proj-cat');
+                    if (filterValue === 'all' || cat === filterValue) {
+                        item.style.display = 'block';
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                            item.style.transform = 'scale(1)';
+                        }, 50);
+                    } else {
+                        item.style.opacity = '0';
+                        item.style.transform = 'scale(0.85)';
+                        setTimeout(() => {
+                            if (tab.getAttribute('data-proj-filter') !== 'all' && cat !== filterValue) {
+                                item.style.display = 'none';
+                            }
+                        }, 200);
+                    }
+                });
+            });
+        });
+
+
+
+        /* Scroll Top Trigger */
+        const scrollTopBtn = document.getElementById('scroll-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                scrollTopBtn.style.display = 'flex';
+            } else {
+                scrollTopBtn.style.display = 'none';
+            }
+        });
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
     </script>
 </body>
 </html>
